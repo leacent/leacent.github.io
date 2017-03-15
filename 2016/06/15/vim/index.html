@@ -8,46 +8,16 @@
   <link rel="dns-prefetch" href="http://leacent.github.io">
   <title>Vim使用笔记 | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 光標在屏幕文本中的移動既可以用箭頭鍵，也可以使用 hjkl 字母鍵。
-
-         h (左移)       j (下行)       k (上行)     l (右移)
-
-2. 欲進入vim編輯器(從命令行提示符)，請輸入︰vim 文件名 
-
-3. 欲退出vim編輯器，請輸入以下命令放棄所有修改︰
-
-         :q!      
-
-    或者輸入以下命令保存所有修改︰">
+  <meta name="description" content="截取了vim自带的一些常用命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim使用笔记">
 <meta property="og:url" content="http://leacent.github.io/2016/06/15/vim/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="1. 光標在屏幕文本中的移動既可以用箭頭鍵，也可以使用 hjkl 字母鍵。
-
-         h (左移)       j (下行)       k (上行)     l (右移)
-
-2. 欲進入vim編輯器(從命令行提示符)，請輸入︰vim 文件名 
-
-3. 欲退出vim編輯器，請輸入以下命令放棄所有修改︰
-
-         :q!      
-
-    或者輸入以下命令保存所有修改︰">
-<meta property="og:updated_time" content="2017-03-15T07:51:30.000Z">
+<meta property="og:description" content="截取了vim自带的一些常用命令">
+<meta property="og:updated_time" content="2017-03-15T08:14:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim使用笔记">
-<meta name="twitter:description" content="1. 光標在屏幕文本中的移動既可以用箭頭鍵，也可以使用 hjkl 字母鍵。
-
-         h (左移)       j (下行)       k (上行)     l (右移)
-
-2. 欲進入vim編輯器(從命令行提示符)，請輸入︰vim 文件名 
-
-3. 欲退出vim編輯器，請輸入以下命令放棄所有修改︰
-
-         :q!      
-
-    或者輸入以下命令保存所有修改︰">
+<meta name="twitter:description" content="截取了vim自带的一些常用命令">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -215,7 +185,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre style="font-size:14px;background-color: #fafafa;border-radius: 4px;">
+        <p>截取了vim自带的一些常用命令<br><a id="more"></a></p>
+<pre style="font-size:14px;background-color: #fafafa;border-radius: 4px;">
 <code style="font-size:14px;color: #333">
 1. 光標在屏幕文本中的移動既可以用箭頭鍵，也可以使用 hjkl 字母鍵。
 
@@ -266,8 +237,16 @@
 15、 如果光標當前位置是括號(、)、[、]、{、}，按 % 可以將光標移動到配對的
      括號上。
 16、：输入命令，！执行外部shell命令 :!pwd 表示列出当前路径
-17、
-  </回車></esc></回車></esc></回車></code>
+17、輸入小寫的 o 可以在光標下方打開新的一行並將光標置于新開的行首，進入插入模式。
+    輸入大寫的 O 可以在光標上方打開新的一行並將光標置于新開的行首，進入插入模式。
+
+18、輸入小寫的 a 可以在光標所在位置之後插入文本。
+    輸入大寫的 A 可以在光標所在行的行末之後插入文本。
+
+19、輸入大寫的 R 將進入替換模式，直至按 <esc> 鍵退出替換模式而進入正常模式。
+20、輸入 :set xxx 可以設置 xxx 選項。
+21、/test 可以匹配test 按n多次查找
+  </esc></回車></esc></回車></esc></回車></code>
 </pre>
       
 
@@ -448,6 +427,10 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">novel</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">code</a>
