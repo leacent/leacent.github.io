@@ -166,6 +166,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/16/跨域/">跨域</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/16/跨域/" class="archive-article-date">
+  	<time datetime="2017-03-16T07:37:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="跨域：一个资源请求另外一个域的资源时候就是跨域请求"><a href="#跨域：一个资源请求另外一个域的资源时候就是跨域请求" class="headerlink" title="跨域：一个资源请求另外一个域的资源时候就是跨域请求"></a>跨域：一个资源请求另外一个域的资源时候就是跨域请求</h6><blockquote>
+<p>原因：XMLHttpRequest和Fetch发起http请求必须遵守同源策略</p>
+</blockquote>
+<h6 id="同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。"><a href="#同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。" class="headerlink" title="同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。"></a>同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。</h6><table>
+<thead>
+<tr>
+<th>下表给出了相对<a href="http://store.company.com/dir/page.html同源检测的示例" target="_blank" rel="external">http://store.company.com/dir/page.html同源检测的示例</a>:</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://store.company.com/dir2/other.html" target="_blank" rel="external">http://store.company.com/dir2/other.html</a></td>
+<td>成功</td>
+<td>dir2/other.html</td>
+</tr>
+<tr>
+<td><a href="http://store.company.com/dir/inner/another.html" target="_blank" rel="external">http://store.company.com/dir/inner/another.html</a></td>
+<td>成功</td>
+<td>dir/inner/another.html</td>
+</tr>
+<tr>
+<td><a href="https://store.company.com/secure.html" target="_blank" rel="external">https://store.company.com/secure.html</a></td>
+<td>失败</td>
+<td>不同的协议 ( https )</td>
+</tr>
+<tr>
+<td><a href="http://store.company.com:81/dir/etc.html" target="_blank" rel="external">http://store.company.com:81/dir/etc.html</a></td>
+<td>失败</td>
+<td>不同的端口 ( 81 )</td>
+</tr>
+<tr>
+<td><a href="http://news.company.com/dir/other.html" target="_blank" rel="external">http://news.company.com/dir/other.html</a></td>
+<td>失败</td>
+<td>不同的主机 ( news )</td>
+</tr>
+</tbody>
+</table>
+<h6 id="跨源资源共享-CORS-机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。"><a href="#跨源资源共享-CORS-机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。" class="headerlink" title="跨源资源共享 ( CORS )机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。"></a>跨源资源共享 ( CORS )机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。</h6><h5 id="简单请求-：-只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application-x-www-form-urlencoded、multipart-form-data、text-plain"><a href="#简单请求-：-只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application-x-www-form-urlencoded、multipart-form-data、text-plain" class="headerlink" title="简单请求 ： 只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application/x-www-form-urlencoded、multipart/form-data、text/plain"></a>简单请求 ： 只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application/x-www-form-urlencoded、multipart/form-data、text/plain</h5><p>  对于简单请求浏览器直接发出CORS请求。在请求的头信息加一个origin字段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">GET /resources/public-data/ HTTP/<span class="number">1.1</span></div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; U; Intel Mac OS X <span class="number">10.5</span>; en-US; rv:<span class="number">1.9</span><span class="number">.1</span>b3pre) Gecko/<span class="number">20081130</span> Minefield/<span class="number">3.1</span>b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,*<span class="comment">/*;q=0.8</span></div><div class="line">Accept-Language: en-us,en;q=0.5</div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</div><div class="line">Connection: keep-alive</div><div class="line">Referer: http://foo.example/examples/access-control/simpleXSInvocation.html</div><div class="line">Origin: http://foo.example</div><div class="line"></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Mon, 01 Dec 2008 00:23:53 GMT</div><div class="line">Server: Apache/2.0.61 </div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Keep-Alive: timeout=2, max=100</div><div class="line">Connection: Keep-Alive</div><div class="line">Transfer-Encoding: chunked</div><div class="line">Content-Type: application/xml</div><div class="line"></div><div class="line">[XML Data]</div></pre></td></tr></table></figure></p>
+<p><strong>请求头中</strong>：Origin: <a href="http://foo.example表示请求的源头，下面" target="_blank" rel="external">http://foo.example表示请求的源头，下面</a>  Access-Control-Allow-Origin: *表示接受所有域名的请求。</p>
+<p><strong>如果改成</strong>：Access-Control-Allow-Origin: <a href="http://foo.example，表示只接受" target="_blank" rel="external">http://foo.example，表示只接受</a> <a href="http://foo.example该站点的请求。" target="_blank" rel="external">http://foo.example该站点的请求。</a></p>
+<h5 id="非简单请求：-是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application-json。"><a href="#非简单请求：-是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application-json。" class="headerlink" title="非简单请求： 是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application/json。"></a>非简单请求： 是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application/json。</h5><blockquote>
+<p>非简单请求的CORS请求，会先发送一个 OPTIONS方法请求给目的站点，来查明这个跨站请求对于目的站点是不是安全的可接受的。称为”预检”请求（preflight）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> invocation = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="keyword">var</span> url = <span class="string">'http://bar.other/resources/post-here/'</span>;</div><div class="line"><span class="keyword">var</span> body = <span class="string">'&lt;?xml version="1.0"?&gt;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;'</span>;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callOtherDomain</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(invocation)</div><div class="line">    &#123;</div><div class="line">      invocation.open(<span class="string">'POST'</span>, url, <span class="literal">true</span>);</div><div class="line">      invocation.setRequestHeader(<span class="string">'X-PINGOTHER'</span>, <span class="string">'pingpong'</span>);</div><div class="line">      invocation.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/xml'</span>);</div><div class="line">      invocation.onreadystatechange = handler;</div><div class="line">      invocation.send(body); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上做了自定义的请求头和设置数据类型为application/xml，所以是“预请求”的情形。</p>
+</blockquote>
+<p><strong>相应的交互过程如下图</strong><br><img src="/images/cross-origin.png"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">OPTIONS /resources/post-here/ HTTP/<span class="number">1.1</span></div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; U; Intel Mac OS X <span class="number">10.5</span>; en-US; rv:<span class="number">1.9</span><span class="number">.1</span>b3pre) Gecko/<span class="number">20081130</span> Minefield/<span class="number">3.1</span>b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,*<span class="comment">/*;q=0.8</span></div><div class="line">Accept-Language: en-us,en;q=0.5</div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</div><div class="line">Connection: keep-alive</div><div class="line">Origin: http://foo.example</div><div class="line">Access-Control-Request-Method: POST</div><div class="line">Access-Control-Request-Headers: X-PINGOTHER</div><div class="line"></div><div class="line"></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Mon, 01 Dec 2008 01:15:39 GMT</div><div class="line">Server: Apache/2.0.61 (Unix)</div><div class="line">Access-Control-Allow-Origin: http://foo.example</div><div class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS</div><div class="line">Access-Control-Allow-Headers: X-PINGOTHER</div><div class="line">Access-Control-Max-Age: 1728000</div><div class="line">Vary: Accept-Encoding, Origin</div><div class="line">Content-Encoding: gzip</div><div class="line">Content-Length: 0</div><div class="line">Keep-Alive: timeout=2, max=100</div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line">POST /resources/post-here/ HTTP/1.1</div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=<span class="number">0.8</span></div><div class="line">Accept-Language: en-us,en;q=<span class="number">0.5</span></div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO<span class="number">-8859</span><span class="number">-1</span>,utf<span class="number">-8</span>;q=<span class="number">0.7</span>,*;q=<span class="number">0.7</span></div><div class="line">Connection: keep-alive</div><div class="line">X-PINGOTHER: pingpong</div><div class="line">Content-Type: text/xml; charset=UTF<span class="number">-8</span></div><div class="line">Referer: http:<span class="comment">//foo.example/examples/preflightInvocation.html</span></div><div class="line">Content-Length: <span class="number">55</span></div><div class="line">Origin: http:<span class="comment">//foo.example</span></div><div class="line">Pragma: no-cache</div><div class="line">Cache-Control: no-cache</div><div class="line"></div><div class="line">Arun</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line"><span class="built_in">Date</span>: Mon, <span class="number">01</span> Dec <span class="number">2008</span> <span class="number">01</span>:<span class="number">15</span>:<span class="number">40</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.61</span> (Unix)</div><div class="line">Access-Control-Allow-Origin: http:<span class="comment">//foo.example</span></div><div class="line">Vary: Accept-Encoding, Origin</div><div class="line">Content-Encoding: gzip</div><div class="line">Content-Length: <span class="number">235</span></div><div class="line">Keep-Alive: timeout=<span class="number">2</span>, max=<span class="number">99</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line">[Some GZIP<span class="string">'d payload]</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>1、先发送一个OPTIONS的“预请求”，这个预请求是一个不会对服务器数据造成影响的方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Request-Method: POST</div><div class="line">Access-Control-Request-Headers: X-PINGOTHER</div></pre></td></tr></table></figure></p>
+<p>2、服务器接受客户端的跨域请求，返回响应头。表明接受POST, GET和 OPTIONS的请求，并且接受X-PINGOTHER的请求头.Access-Control-Max-Age表示这个option预请求有效期为1728000秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http:<span class="comment">//foo.example</span></div><div class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS</div><div class="line">Access-Control-Allow-Headers: X-PINGOTHER</div><div class="line">Access-Control-Max-Age: <span class="number">1728000</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="附带凭证信息的请求（比如cookies）"><a href="#附带凭证信息的请求（比如cookies）" class="headerlink" title="附带凭证信息的请求（比如cookies）"></a>附带凭证信息的请求（比如cookies）</h5><blockquote>
+<p><a href="http://foo.example站点的脚本向http://bar.other站点发送一个GET请求，并设置了一个Cookies值。脚本代码如下：" target="_blank" rel="external">http://foo.example站点的脚本向http://bar.other站点发送一个GET请求，并设置了一个Cookies值。脚本代码如下：</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> invocation = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="keyword">var</span> url = <span class="string">'http://bar.other/resources/credentialed-content/'</span>;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callOtherDomain</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(invocation) &#123;</div><div class="line">    invocation.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</div><div class="line">    invocation.withCredentials = <span class="literal">true</span>;</div><div class="line">    invocation.onreadystatechange = handler;</div><div class="line">    invocation.send(); </div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>这里invocation.withCredentials = true;表示cookies可以随着请求一起发送。</p>
+<p>客服端与服务器端交互示例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">  GET /resources/access-control-<span class="keyword">with</span>-credentials/ HTTP/<span class="number">1.1</span></div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; U; Intel Mac OS X <span class="number">10.5</span>; en-US; rv:<span class="number">1.9</span><span class="number">.1</span>b3pre) Gecko/<span class="number">20081130</span> Minefield/<span class="number">3.1</span>b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,*<span class="comment">/*;q=0.8</span></div><div class="line">Accept-Language: en-us,en;q=0.5</div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</div><div class="line">Connection: keep-alive</div><div class="line">Referer: http://foo.example/examples/credential.html</div><div class="line">Origin: http://foo.example</div><div class="line">Cookie: pageAccess=2</div><div class="line"></div><div class="line"></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Mon, 01 Dec 2008 01:34:52 GMT</div><div class="line">Server: Apache/2.0.61 (Unix) PHP/4.4.7 mod_ssl/2.0.61 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.4.2</div><div class="line">X-Powered-By: PHP/5.2.6</div><div class="line">Access-Control-Allow-Origin: http://foo.example</div><div class="line">Access-Control-Allow-Credentials: true</div><div class="line">Cache-Control: no-cache</div><div class="line">Pragma: no-cache</div><div class="line">Set-Cookie: pageAccess=3; expires=Wed, 31-Dec-2008 01:34:53 GMT</div><div class="line">Vary: Accept-Encoding, Origin</div><div class="line">Content-Encoding: gzip</div><div class="line">Content-Length: 106</div><div class="line">Keep-Alive: timeout=2, max=100</div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line"></div><div class="line">[text/plain payload]</div></pre></td></tr></table></figure></p>
+<p>这里19行Access-Control-Allow-Credentials: true表示接受前端发送cookies信息。如果不是true则会忽略。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/16/跨域/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -701,67 +816,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2013/03/20/novel-6/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-novel-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/19/novel-7/">十</a>
-    </h1>
-  
-
-        
-        <a href="/2013/03/19/novel-7/" class="archive-article-date">
-  	<time datetime="2013-03-19T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="color: #666;font-size:14px"><br>十<br>　　　“柳园里我和心爱者曾经相遇，她雪白的小脚从柳园里经过。她要我把爱情看淡些却不肯同意。……但我年轻而愚蠢，如今泪如潮”——叶芝<br>　　　我行走在高中母校的校道上，太阳有点热辣，把地上的落叶都烤黄烤干，我踩在上面发出吱吱的声响。在几年前快要被融化的暑假，我靠在榕树旁亲吻了羞涩的唐子姗，周围很安静一个人都没有，却怎么也阻止不了可爱的红晕散在她脸上。此时校园依然静谧，暑假到了，学生也都放假回去了，我是故意挑这个时间来的。一个人，才会让这些感情更真实地流露，不是吗？<br>
-        
-          <a class="article-more-a" href="/2013/03/19/novel-7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/03/19/novel-7/">read more >></a>
         </p>
       
 
