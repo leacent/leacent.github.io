@@ -85,7 +85,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/leacent" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/u/1820560542?refer_flag=1001030201_" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="http://weibo.com/leacent" title="weibo"><i class="icon-weibo"></i></a>
 		        
 			</div>
 		</nav>
@@ -126,7 +126,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/leacent" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/1820560542?refer_flag=1001030201_" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="http://weibo.com/leacent" title="weibo"><i class="icon-weibo"></i></a>
 			        
 				</div>
 			</nav>
@@ -157,6 +157,65 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-codeAndLife" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/codeAndLife/">codeAndLife</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/20/codeAndLife/" class="archive-article-date">
+  	<time datetime="2017-03-20T05:49:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img width="600" src="/images/codeandlife.jpeg"><br>从小到大就喜欢类比，为了能够深刻的理解或者记忆某些事情。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">life diary</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/20/codeAndLife/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-前端面试题收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -369,11 +428,6 @@
 <h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><blockquote>
 <p>  每个函数都有一个原型属性prototype指向函数的自身原型，而每个有这个函数创建的对象都有一个<strong>proto</strong>指向自己的原型，然后逐层深入直到最后Object的原型对象null</p>
 </blockquote>
-<h5 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h5><blockquote>
-<p>基本模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Parent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>.name = <span class="string">'parent'</span> ;</div><div class="line">&#125; ;</div><div class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name ;</div><div class="line">&#125; ;</div><div class="line">Parent.prototype.obj = &#123;<span class="attr">a</span> : <span class="number">1</span>&#125; ;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Child = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'child'</span> ;</div><div class="line">&#125; ;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent() ;</div><div class="line"></div><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent() ;</div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child() ;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(parent.getName()) ; <span class="comment">//parent</span></div><div class="line"><span class="built_in">console</span>.log(child.getName()) ; <span class="comment">//child</span></div></pre></td></tr></table></figure></p>
-<p>构造函数模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Parent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</div><div class="line">&#125;</div><div class="line">Parent.prototype  = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</div><div class="line"><span class="keyword">var</span> Child = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    Parent.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</div><div class="line">&#125;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent() ;</div><div class="line"></div><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">'myParent'</span>) ;</div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">'myChild'</span>) ;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(parent.getName()) ; <span class="comment">//myParent</span></div><div class="line"><span class="built_in">console</span>.log(child.getName()) ; <span class="comment">//myChild</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="传值还是引用"><a href="#传值还是引用" class="headerlink" title="传值还是引用"></a>传值还是引用</h4><p>1、传值传内存拷贝不会改变引用的值<br>2、传引用是传内存指针</p>
         
           <a class="article-more-a" href="/2016/03/15/前端知识碎片/#more">more >></a>
         
@@ -719,67 +773,6 @@
 
 
   
-    <article id="post-novel-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/21/novel-5/">八</a>
-    </h1>
-  
-
-        
-        <a href="/2013/03/21/novel-5/" class="archive-article-date">
-  	<time datetime="2013-03-21T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="color: #666;font-size:14px"><br>八<br>　　　<br>　　　早上七点零四分，我自己夹了本书出去了。林浩大概还在美梦中就没叫他一起了。我花了点力气爬上后山，东方已经有淡淡的光辉，能给人莫名的兴奋。地上此时有点湿，我翻开铺在上面的松针坐了下来。小鸟在叽叽喳喳，像是吵架。我并不能分清这些是什么鸟，也说不上很喜欢鸟，但只要不在我看书的时候滴两滴鸟粪下来，我还是很喜欢它们的陪伴的。我很随便地翻着书，忘了昨天看到了哪里。我不习惯放书签，里面夹的多是一些随笔，写着灵光一现的想法的小纸条。像这句“泛着柔情的泪水，还没滴下来，我已感觉承受不起。”这句话是我看了一部电影后写下的。女主角是个很完美的人，在我看来不管是外在还是内在都是如此的。她的坚忍与痴情最终都感动了自己，幸福地为自己留下了眼泪。多少人能因为自己而流下幸福的眼泪呢？我想着她，我想着自己，我感觉触动到我的内心深处了，我深深地感到她的眼泪我承受不起。<br>
-        
-          <a class="article-more-a" href="/2013/03/21/novel-5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/03/21/novel-5/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -873,11 +866,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
+                <a href="javascript:void(0)" class="js-tag color1">novel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">novel</a>
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,11 +882,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">code  前端</a>
+                <a href="javascript:void(0)" class="js-tag color1">life,diary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">code,前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">life | diary</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">life diary</a>
               </li>
             
             <div class="clearfix"></div>
