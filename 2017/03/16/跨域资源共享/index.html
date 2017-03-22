@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://leacent.github.io">
-  <title>二十二 | Leacent</title>
+  <title>跨域资源共享 CORS | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二十二　　　　后来，我搬出宿舍了，在林浩家附近租了房子。那房子很普通很便宜，周围长着乡下常见的杂树，我在那呼吸着廉价的新鲜空气。在这半个多月来，我与小诗只是信息联系。她似乎没察觉出我有什么异常，我没说她也没问。但我察觉到她越来不安，是那种靠近了她喜欢的人而感到的不安。我时常感到心灰意冷，绝望的心情压得自己难以喘气。天寒地冻的，在自己小屋子昏天暗地地喝酒也很容易。只不过喝酒着凉了，可以拼命添衣，但是">
+  <meta name="description" content="跨域：一个资源请求另外一个域的资源时候就是跨域请求
+原因：XMLHttpRequest和Fetch发起http请求必须遵守同源策略">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二十二">
-<meta property="og:url" content="http://leacent.github.io/2013/03/08/novel-18/index.html">
+<meta property="og:title" content="跨域资源共享 CORS">
+<meta property="og:url" content="http://leacent.github.io/2017/03/16/跨域资源共享/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="二十二　　　　后来，我搬出宿舍了，在林浩家附近租了房子。那房子很普通很便宜，周围长着乡下常见的杂树，我在那呼吸着廉价的新鲜空气。在这半个多月来，我与小诗只是信息联系。她似乎没察觉出我有什么异常，我没说她也没问。但我察觉到她越来不安，是那种靠近了她喜欢的人而感到的不安。我时常感到心灰意冷，绝望的心情压得自己难以喘气。天寒地冻的，在自己小屋子昏天暗地地喝酒也很容易。只不过喝酒着凉了，可以拼命添衣，但是">
-<meta property="og:updated_time" content="2017-03-15T08:49:13.000Z">
+<meta property="og:description" content="跨域：一个资源请求另外一个域的资源时候就是跨域请求
+原因：XMLHttpRequest和Fetch发起http请求必须遵守同源策略">
+<meta property="og:image" content="http://leacent.github.io/images/cross-origin.png">
+<meta property="og:updated_time" content="2017-03-21T03:47:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二十二">
-<meta name="twitter:description" content="二十二　　　　后来，我搬出宿舍了，在林浩家附近租了房子。那房子很普通很便宜，周围长着乡下常见的杂树，我在那呼吸着廉价的新鲜空气。在这半个多月来，我与小诗只是信息联系。她似乎没察觉出我有什么异常，我没说她也没问。但我察觉到她越来不安，是那种靠近了她喜欢的人而感到的不安。我时常感到心灰意冷，绝望的心情压得自己难以喘气。天寒地冻的，在自己小屋子昏天暗地地喝酒也很容易。只不过喝酒着凉了，可以拼命添衣，但是">
+<meta name="twitter:title" content="跨域资源共享 CORS">
+<meta name="twitter:description" content="跨域：一个资源请求另外一个域的资源时候就是跨域请求
+原因：XMLHttpRequest和Fetch发起http请求必须遵守同源策略">
+<meta name="twitter:image" content="http://leacent.github.io/images/cross-origin.png">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -153,27 +158,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-novel-18" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-跨域资源共享" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      二十二
+      跨域资源共享 CORS
     </h1>
   
 
         
-        <a href="/2013/03/08/novel-18/" class="archive-article-date">
-  	<time datetime="2013-03-08T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-08</time>
+        <a href="/2017/03/16/跨域资源共享/" class="archive-article-date">
+  	<time datetime="2017-03-16T07:37:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p style="color: #666;font-size:14px"><br>二十二<br>　　　　后来，我搬出宿舍了，在林浩家附近租了房子。那房子很普通很便宜，周围长着乡下常见的杂树，我在那呼吸着廉价的新鲜空气。在这半个多月来，我与小诗只是信息联系。她似乎没察觉出我有什么异常，我没说她也没问。但我察觉到她越来不安，是那种靠近了她喜欢的人而感到的不安。我时常感到心灰意冷，绝望的心情压得自己难以喘气。天寒地冻的，在自己小屋子昏天暗地地喝酒也很容易。只不过喝酒着凉了，可以拼命添衣，但是心冷却无处取暖。我无日无夜地在恍惚中告别时光，像林菲那样，搞到后来大学读不下去，辍学了。<br><a id="more"></a><br><br>　　　　因为租的房子离林浩家很近，我就偶尔过去林浩家看看。林阿姨经常是喝得醉醺醺、脸红红的，一身瘫坐在沙发上。我过去了，就帮她打扫扔得到处都是的酒瓶；或者把她扶到房间，煮些糖水给她喝。我能做的也只是这些了。失去林浩的伤痛，每个人心里都有，也不是互相说出来就能好的。我不敢跟林阿姨再提起这件事，她也刻意不把事情往那方面去想。<br>　　　　“阿羽，谢谢你还经常过来看我。”她喝下一口糖水，满脸欣慰地说道。<br>　　　　我轻轻关上门出来，情不自禁地往林浩的房间走去，却在门口惊醒，于是转身下楼去了。林菲带着疲倦的身躯回来，这段时间以来都是她管理那两间超市。她不再穿着性感、暴露，而是一身正派的正装。<br>　　　　“阿羽，能过来说说话吗？”她放下包，从冰箱拿了两瓶酒出来。<br>　　　　“可以。”我说道。<br>　　　　“怎么？不相信？”她看我一脸诧异地打量她的穿着便这样问道。<br>　　　　“跟以往的风格迥异。”我说道。<br>　　　　“家塌下来，总有一个人比较高，需要顶着。我不能再让我妈扛得那么累了。”<br>　　　　“我知道。你也做得很好。”<br>　　　　“今后有什么打算，你已经搬出来了，你的生活还好吧。”<br>　　　　“生活嘛，也就这样了，不过搬出来倒是自由了很多。”<br>　　　　“自由了，你也别到处鬼混啊。”林菲久违地笑了。<br>　　　　“不跟着你，我哪鬼混得了。”我也笑着说道。<br>　　　　外面的天色很暗，冬天不仅偷走温暖，还偷走了一点白天。不到六点，街上已经全是灯火。<br>　　　　“阿羽。”此时林菲的脸上出现了少见的笑容，那么地温柔和熙，像微风一样吹过，从两片血红的嘴唇，轻轻地滑出了我的名字。在我的记忆中，她从没这样叫过我。仿佛是她的声音，作为一个心灵的指引者把我带到了她的内心深处，感受到了她从内心深处传出来的感情——亲切、真实。就像之前说过那样，我对她的认识是一直在变的。此时她也是那样，变得很美，比以前美。<br>　　　　“这是给你的。”她往林阿姨的房间看了看后说道。“是相册，林浩从小到大的相片都在这儿。”<br>　　　　“那么你们呢？”<br>　　　　“我们各有一份。这份属于你的。”<br>　　　　我捧过相册，根本不敢在此时翻开看。我怕内心太过澎湃，怕压抑太久的情感在此时汹涌出来。我轻轻地把它放进书包。<br>　　　　“林浩对你那么好，像兄弟。他的性格，能和你成为那么要好的朋友，绝对是缘分才能解释的。我也很欣慰看到他能有你这个朋友，所以我希望你能活得很好。”林菲说道。<br>　　　　我喝着酒，听着林菲说了很多林浩怎么评价我的话，我听完后很伤心。<br>　　　　我把视野投向窗外，一大片的落地窗户，让夜色很轻易地倾泻进来。天色变暗的速度越来越快像得了癌症，在最后关头也未能反应过来。林菲未能挽留住我，我带了耳机打开门，孤身闯进完全黑掉的夜。走了很远，才看见林菲慢慢地亮起了灯，那节能环保的冷光源冷冷地照射着同样清冷的大房子。<br>　　　　我慢慢地翻看着林浩的相册，慢慢地喝掉剩下的酒。冬天的酒会有多冷，不在心情死寂的时候喝是不会知道的。即使相册中的林浩精致如天使也无法缓和这种感受。看着如此完美无暇的人，遵循着这世界残酷的法则，无能为力地变成记忆，我的内心已是满满的恨意，我恨透了这个世界。我恨这世界不能被努力所改变的残酷法则，我恨自己是渺小的人类，我恨自己身为生命体却被生命本身冷冷地嘲弄。是的，我完全没了理性。当酒精继续刺激着大脑，继续放大着仇恨的时候，内心已容不下其他感情。<br>　　　　廖小诗，我亲爱的廖小诗，她选择了这个时候发了一条问候的短信。<br>　　　　“阿羽，天气慢慢变凉了，你要注意保暖啊。我刚买了新被子，你也去买一条吧。还有要注意多喝水，天气干燥。”<br>　　　　这本是一条温暖的短信，是一句足以让我手舞足蹈的问候，但是，这条短信在错的时候出现了，这或许是上天决定的。<br>　　　　我心灰意冷地看完这条充满温暖的短信，心里暗暗地想着，是时候作出决定了。<br>　　　　自从走上喜欢小诗这条路，我的喜怒哀乐开始活跃地变化，为了这个仙女般的女孩，我甚至舍弃了很多，差点失去自我。但是，路太长，我的心太累走不下去了。我要离开她，这是我收到短信的第一个想法。<br>　　　　我一直喝，一直在酝酿回复的短信内容。一直以来，这份爱让自己感到卑微。此刻的分离，我要内容简单深刻，让她永远铭记；我要内容骄傲不屈，让自己骄傲地离去。<br>　　　　于是，我控制着发抖的手，慢慢地在手机敲下这几个字。<br>　　　　“我要离开你，是永远离开的那种。希望，我的离去是骄傲的。感谢有过你的岁月。”<br>　　　　打完这行字，不忍继续看，怕有悔意，所以立即发送了过去。在等待小诗短信的时间里，世界突然走得好慢，‘鬼言人间三日，地狱三年’，所以我觉得此时的自己像被打入地狱一样，遭受着漫长的煎熬。虽然感觉等待漫长，但内心却希望时间别太快，内心在害怕着一些不敢面对的东西。<br>　　　　但是，就像等到了林浩最终还是离去那样，我也等到了小诗的短信。<br>　　　　“我想说你是骄傲的，你在我心里一直是骄傲的。谢谢你默默地在我身后守候那么久，以至于我等到你要离去的时候才意识到会那么悲伤。谢谢你的陪伴，希望你找到你的幸福。——廖小诗。”<br>　　　　我悲伤地、草草地看完，然后悲愤地把手机摔到一边。即使如此难过，我的内心还是在告诫自己，不能回头了。<br>　　　　于是，这个夜，被酒精麻醉了。<br>　　　　我在混沌中隐隐约约地想起了小时候，想起了夜的天空，想起天空下越流越细的河流。那时光太美好，此时忽然的回忆有一种凄美。<br>　　　　我以为失去小诗的日子会很难过，但事实就像我失去林浩那样，时间还是从来不为了我一个人而改变。时间无情，有情的只是渺小的人类。所以对我来说，日子只是栓在时间后头，被时间拉扯着走。走着走着伤痛就好了，徒有伤疤留着。<br>　　　　早上醒来，看到小诗更新了心情说说。<br>　　　　“世上最痛苦的事不是你喜欢的人不喜欢你，而是喜欢你很久的人离开你，从此不在你的身后守候。”<br>　　　　我看完才恍然大悟似地把她的所有联系方式删掉，一了百了，免得自己卑贱地悔恨。<br>　　　　这几天我都没去上课，陈志和徐子杰来到我住的地方，苦口婆心最后也放弃。按照这样的发展，我被开除也是迟早的事了。这样想通了，倒也是解脱，不会担心这担心那的。<br>　　　　子姗后来也来到了我住的地方，我满心欢喜地迎接她的到来。我出去买了酒和菜，晚饭自己煮了。子姗对我的厨艺赞不绝口。饭后我们像小两口似的把饭碗给洗了。<br>　　　　她坐在阳台，裹了一件白色的羽绒，动作娴熟地倒了两杯红酒。<br>　　　　“天有点冻。你穿多点在喝。”<br>　　　　“听说喝酒可以暖身。”<br>　　　　“这是红酒，不是二锅头。”<br>　　　　“我知道，没事的。”<br>　　　　“最近过得不怎样吧。”<br>　　　　“看出来了吗？”<br>　　　　“我还不了解你吗？你的音乐一整天都是Eminem的歌，心情不好的时候你就会听他的歌。还有我刚到你这儿的时候你在写字，你心烦意乱的时候就会写字，而且写的是草书。”<br>　　　　“女版的福尔摩斯。”<br>　　　　“那就说说什么事让你这样吧。”<br>　　　　“这段时间，林浩离开了我们，然后我离开了小诗。”<br>　　　　“Oh，dear。林浩这样年轻。”子姗说着抱了我一下。<br>　　　　“我们会在天堂相见的。林浩说过，他会捧着鲜花欢迎我，所我要多做好事，以后才能去天堂。”<br>　　　　“我知道你很难过。可是我想你好好的，不然我也会很难过的。”<br>　　　　“陪我喝了这杯。”<br>　　　　“你那么喜欢小诗，为什么离开她呢？”<br>　　　　“我累了。原来喜欢一个人那么久真的会累的。即使知道离开她心会很痛，但是，不离开她，我又可以看到那漫长的等待与不安。我有时候也在想，太美的东西我根本就不够资格拥有。可能，这些都是应该存在脑海的想法，只是不小心跑了出来了，今天才意识到。”<br>　　　　“羽，我知道你此时的心情，我也知道你此时会讨厌我说理性的话。我也保证我不会无趣。”<br>　　　　“对啊，你怎么能用理性分析一个喝醉的人呢？”<br>　　　　“但是，我觉得你不应该只顾喝酒。因为我就在你身边。”她冰冷的双手摸着我那滚烫的脸颊，用一副依依不舍的神情看着我，好像看了这一眼就不会再有了一样。<br>　　　　“那是要我吻你吗？”<br>　　　　她优雅地站起来，温柔地拿走我手中的酒瓶放在桌上。<br>　　　　她在我身边放起了我此时最爱听的歌，我们说了很多，我也渐渐地睡着了。<br>　　　　伴着外面冷雨淅淅沥沥的声音，我一觉睡到了早上。<br>　　　　早上醒来的空气沁人心脾，整个世界被昨晚的冷雨洗过，冒着寒气，像是从冰箱里拿出来那样新鲜。子姗早早地回去了，像我上次不告而别那样。<br>　　　　而这一次我与子姗的分别以后竟也没见过面了。<br>　　　　我在屋子门前冰冷的椅子坐下，想着一些事。悲伤的记忆像秋天的黄叶在空中慌张地飘来飘去，落在地上被人踩碎、被雪掩盖。凡是看起来没什么希望的事，最终也走到了尽头。只是这一切都像约定好了一样，选择在这个本来就不美的冬天一起到来。当一阵暴风雨吹过来，你会觉得恨；但是当一阵阵暴风雨接踵而来的时候，你会觉得心里有一种痛快，悲壮得很痛快，悲壮得让你笑着痛哭流涕。是的，暴风雨过后也没有死去，这才是最痛的；暴风雨后的天空如此晴朗，好到让你忘了存在的意义。<br>　　　　“细雨带风湿透黄昏的街道”，陈志和徐子杰陪我在街边吃了最后一顿饭，我告诉他们明天我就要回家了，不打算读下去了，可爱、软弱的徐子杰默默地点着头。<br>　　　　缘深缘浅，都有尽头。<br>　　　　以前不会太注意回去路上的街灯，发黄的光源吸引着飞虫，热热闹闹的，不管如何，世界总会有清冷的角落收留孤独，我抱起垃圾堆旁的小猫，慰藉般地抚摸。这条街竟会这么长，走着走着回头一看，街灯也不在亮了。我把猫放在地上，它径直走向黑暗的角落，毫不回头、毫无眷恋。<br>　　　　我舒了口气，像是解脱了一般。<br></p>
+        <h6 id="跨域：一个资源请求另外一个域的资源时候就是跨域请求"><a href="#跨域：一个资源请求另外一个域的资源时候就是跨域请求" class="headerlink" title="跨域：一个资源请求另外一个域的资源时候就是跨域请求"></a>跨域：一个资源请求另外一个域的资源时候就是跨域请求</h6><blockquote>
+<p>原因：XMLHttpRequest和Fetch发起http请求必须遵守同源策略</p>
+</blockquote>
+<a id="more"></a>
+<h6 id="同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。"><a href="#同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。" class="headerlink" title="同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。"></a>同源策略：同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。</h6><table>
+<thead>
+<tr>
+<th>下表给出了相对<a href="http://store.company.com/dir/page.html同源检测的示例" target="_blank" rel="external">http://store.company.com/dir/page.html同源检测的示例</a>:</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://store.company.com/dir2/other.html" target="_blank" rel="external">http://store.company.com/dir2/other.html</a></td>
+<td>成功</td>
+<td>dir2/other.html</td>
+</tr>
+<tr>
+<td><a href="http://store.company.com/dir/inner/another.html" target="_blank" rel="external">http://store.company.com/dir/inner/another.html</a></td>
+<td>成功</td>
+<td>dir/inner/another.html</td>
+</tr>
+<tr>
+<td><a href="https://store.company.com/secure.html" target="_blank" rel="external">https://store.company.com/secure.html</a></td>
+<td>失败</td>
+<td>不同的协议 ( https )</td>
+</tr>
+<tr>
+<td><a href="http://store.company.com:81/dir/etc.html" target="_blank" rel="external">http://store.company.com:81/dir/etc.html</a></td>
+<td>失败</td>
+<td>不同的端口 ( 81 )</td>
+</tr>
+<tr>
+<td><a href="http://news.company.com/dir/other.html" target="_blank" rel="external">http://news.company.com/dir/other.html</a></td>
+<td>失败</td>
+<td>不同的主机 ( news )</td>
+</tr>
+</tbody>
+</table>
+<h6 id="跨源资源共享-CORS-机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。"><a href="#跨源资源共享-CORS-机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。" class="headerlink" title="跨源资源共享 ( CORS )机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。"></a>跨源资源共享 ( CORS )机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。</h6><h5 id="简单请求-：-只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application-x-www-form-urlencoded、multipart-form-data、text-plain"><a href="#简单请求-：-只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application-x-www-form-urlencoded、multipart-form-data、text-plain" class="headerlink" title="简单请求 ： 只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application/x-www-form-urlencoded、multipart/form-data、text/plain"></a>简单请求 ： 只允许方法：GET、HEAD、POST的请求，只允许ContentType为：application/x-www-form-urlencoded、multipart/form-data、text/plain</h5><p>  对于简单请求浏览器直接发出CORS请求。在请求的头信息加一个origin字段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">GET /resources/public-data/ HTTP/<span class="number">1.1</span></div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; U; Intel Mac OS X <span class="number">10.5</span>; en-US; rv:<span class="number">1.9</span><span class="number">.1</span>b3pre) Gecko/<span class="number">20081130</span> Minefield/<span class="number">3.1</span>b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,*<span class="comment">/*;q=0.8</span></div><div class="line">Accept-Language: en-us,en;q=0.5</div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</div><div class="line">Connection: keep-alive</div><div class="line">Referer: http://foo.example/examples/access-control/simpleXSInvocation.html</div><div class="line">Origin: http://foo.example</div><div class="line"></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Mon, 01 Dec 2008 00:23:53 GMT</div><div class="line">Server: Apache/2.0.61 </div><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Keep-Alive: timeout=2, max=100</div><div class="line">Connection: Keep-Alive</div><div class="line">Transfer-Encoding: chunked</div><div class="line">Content-Type: application/xml</div><div class="line"></div><div class="line">[XML Data]</div></pre></td></tr></table></figure></p>
+<p><strong>请求头中</strong>：Origin: <a href="http://foo.example表示请求的源头，下面" target="_blank" rel="external">http://foo.example表示请求的源头，下面</a>  Access-Control-Allow-Origin: *表示接受所有域名的请求。</p>
+<p><strong>如果改成</strong>：Access-Control-Allow-Origin: <a href="http://foo.example，表示只接受" target="_blank" rel="external">http://foo.example，表示只接受</a> <a href="http://foo.example该站点的请求。" target="_blank" rel="external">http://foo.example该站点的请求。</a></p>
+<h5 id="非简单请求：-是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application-json。"><a href="#非简单请求：-是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application-json。" class="headerlink" title="非简单请求： 是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application/json。"></a>非简单请求： 是对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者ContentType为application/json。</h5><blockquote>
+<p>非简单请求的CORS请求，会先发送一个 OPTIONS方法请求给目的站点，来查明这个跨站请求对于目的站点是不是安全的可接受的。称为”预检”请求（preflight）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> invocation = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="keyword">var</span> url = <span class="string">'http://bar.other/resources/post-here/'</span>;</div><div class="line"><span class="keyword">var</span> body = <span class="string">'&lt;?xml version="1.0"?&gt;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;'</span>;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callOtherDomain</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(invocation)</div><div class="line">    &#123;</div><div class="line">      invocation.open(<span class="string">'POST'</span>, url, <span class="literal">true</span>);</div><div class="line">      invocation.setRequestHeader(<span class="string">'X-PINGOTHER'</span>, <span class="string">'pingpong'</span>);</div><div class="line">      invocation.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/xml'</span>);</div><div class="line">      invocation.onreadystatechange = handler;</div><div class="line">      invocation.send(body); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上做了自定义的请求头和设置数据类型为application/xml，所以是“预请求”的情形。</p>
+</blockquote>
+<p><strong>相应的交互过程如下图</strong><br><img src="/images/cross-origin.png"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">OPTIONS /resources/post-here/ HTTP/<span class="number">1.1</span></div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; U; Intel Mac OS X <span class="number">10.5</span>; en-US; rv:<span class="number">1.9</span><span class="number">.1</span>b3pre) Gecko/<span class="number">20081130</span> Minefield/<span class="number">3.1</span>b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,*<span class="comment">/*;q=0.8</span></div><div class="line">Accept-Language: en-us,en;q=0.5</div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</div><div class="line">Connection: keep-alive</div><div class="line">Origin: http://foo.example</div><div class="line">Access-Control-Request-Method: POST</div><div class="line">Access-Control-Request-Headers: X-PINGOTHER</div><div class="line"></div><div class="line"></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Mon, 01 Dec 2008 01:15:39 GMT</div><div class="line">Server: Apache/2.0.61 (Unix)</div><div class="line">Access-Control-Allow-Origin: http://foo.example</div><div class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS</div><div class="line">Access-Control-Allow-Headers: X-PINGOTHER</div><div class="line">Access-Control-Max-Age: 1728000</div><div class="line">Vary: Accept-Encoding, Origin</div><div class="line">Content-Encoding: gzip</div><div class="line">Content-Length: 0</div><div class="line">Keep-Alive: timeout=2, max=100</div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line">POST /resources/post-here/ HTTP/1.1</div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=<span class="number">0.8</span></div><div class="line">Accept-Language: en-us,en;q=<span class="number">0.5</span></div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO<span class="number">-8859</span><span class="number">-1</span>,utf<span class="number">-8</span>;q=<span class="number">0.7</span>,*;q=<span class="number">0.7</span></div><div class="line">Connection: keep-alive</div><div class="line">X-PINGOTHER: pingpong</div><div class="line">Content-Type: text/xml; charset=UTF<span class="number">-8</span></div><div class="line">Referer: http:<span class="comment">//foo.example/examples/preflightInvocation.html</span></div><div class="line">Content-Length: <span class="number">55</span></div><div class="line">Origin: http:<span class="comment">//foo.example</span></div><div class="line">Pragma: no-cache</div><div class="line">Cache-Control: no-cache</div><div class="line"></div><div class="line">Arun</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line"><span class="built_in">Date</span>: Mon, <span class="number">01</span> Dec <span class="number">2008</span> <span class="number">01</span>:<span class="number">15</span>:<span class="number">40</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.61</span> (Unix)</div><div class="line">Access-Control-Allow-Origin: http:<span class="comment">//foo.example</span></div><div class="line">Vary: Accept-Encoding, Origin</div><div class="line">Content-Encoding: gzip</div><div class="line">Content-Length: <span class="number">235</span></div><div class="line">Keep-Alive: timeout=<span class="number">2</span>, max=<span class="number">99</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line">[Some GZIP<span class="string">'d payload]</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>1、先发送一个OPTIONS的“预请求”，这个预请求是一个不会对服务器数据造成影响的方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Request-Method: POST</div><div class="line">Access-Control-Request-Headers: X-PINGOTHER</div></pre></td></tr></table></figure></p>
+<p>2、服务器接受客户端的跨域请求，返回响应头。表明接受POST, GET和 OPTIONS的请求，并且接受X-PINGOTHER的请求头.Access-Control-Max-Age表示这个option预请求有效期为1728000秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http:<span class="comment">//foo.example</span></div><div class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS</div><div class="line">Access-Control-Allow-Headers: X-PINGOTHER</div><div class="line">Access-Control-Max-Age: <span class="number">1728000</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="附带凭证信息的请求（比如cookies）"><a href="#附带凭证信息的请求（比如cookies）" class="headerlink" title="附带凭证信息的请求（比如cookies）"></a>附带凭证信息的请求（比如cookies）</h5><blockquote>
+<p><a href="http://foo.example站点的脚本向http://bar.other站点发送一个GET请求，并设置了一个Cookies值。脚本代码如下：" target="_blank" rel="external">http://foo.example站点的脚本向http://bar.other站点发送一个GET请求，并设置了一个Cookies值。脚本代码如下：</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> invocation = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="keyword">var</span> url = <span class="string">'http://bar.other/resources/credentialed-content/'</span>;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callOtherDomain</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(invocation) &#123;</div><div class="line">    invocation.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</div><div class="line">    invocation.withCredentials = <span class="literal">true</span>;</div><div class="line">    invocation.onreadystatechange = handler;</div><div class="line">    invocation.send(); </div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>这里invocation.withCredentials = true;表示cookies可以随着请求一起发送。</p>
+<p>客服端与服务器端交互示例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">  GET /resources/access-control-<span class="keyword">with</span>-credentials/ HTTP/<span class="number">1.1</span></div><div class="line">Host: bar.other</div><div class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; U; Intel Mac OS X <span class="number">10.5</span>; en-US; rv:<span class="number">1.9</span><span class="number">.1</span>b3pre) Gecko/<span class="number">20081130</span> Minefield/<span class="number">3.1</span>b3pre</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,*<span class="comment">/*;q=0.8</span></div><div class="line">Accept-Language: en-us,en;q=0.5</div><div class="line">Accept-Encoding: gzip,deflate</div><div class="line">Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7</div><div class="line">Connection: keep-alive</div><div class="line">Referer: http://foo.example/examples/credential.html</div><div class="line">Origin: http://foo.example</div><div class="line">Cookie: pageAccess=2</div><div class="line"></div><div class="line"></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Mon, 01 Dec 2008 01:34:52 GMT</div><div class="line">Server: Apache/2.0.61 (Unix) PHP/4.4.7 mod_ssl/2.0.61 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.4.2</div><div class="line">X-Powered-By: PHP/5.2.6</div><div class="line">Access-Control-Allow-Origin: http://foo.example</div><div class="line">Access-Control-Allow-Credentials: true</div><div class="line">Cache-Control: no-cache</div><div class="line">Pragma: no-cache</div><div class="line">Set-Cookie: pageAccess=3; expires=Wed, 31-Dec-2008 01:34:53 GMT</div><div class="line">Vary: Accept-Encoding, Origin</div><div class="line">Content-Encoding: gzip</div><div class="line">Content-Length: 106</div><div class="line">Keep-Alive: timeout=2, max=100</div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/plain</div><div class="line"></div><div class="line"></div><div class="line">[text/plain payload]</div></pre></td></tr></table></figure></p>
+<p>这里19行Access-Control-Allow-Credentials: true表示接受前端发送cookies信息。如果不是true则会忽略。</p>
+</blockquote>
+
       
 
       
@@ -186,7 +249,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
@@ -242,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2013/03/08/novel-18/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2017/03/16/跨域资源共享/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -256,18 +319,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2013/03/09/novel-17/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/16/前端面试题收集/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          二十一
+          前端面试题收集
         
       </div>
     </a>
   
   
-    <a href="/2013/03/07/novel-19/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">归零</div>
+    <a href="/2016/06/15/vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vim使用笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
