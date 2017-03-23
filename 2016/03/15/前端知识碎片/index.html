@@ -8,28 +8,16 @@
   <link rel="dns-prefetch" href="http://leacent.github.io">
   <title>前端知识碎片 | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="undefined和null区别
-  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”
-
-原型
-  每个函数都有一个原型属性prototype指向函数的自身原型，而每个有这个函数创建的对象都有一个proto">
+  <meta name="description" content="用async优雅的实现异步1234567891011121314function log(time)&amp;#123;  return new Promise((resolve,reject)=&amp;gt;&amp;#123;    setTimeout(()=&amp;gt; &amp;#123;      resolve(time)      console.log(`after $&amp;#123;time&amp;#125;s`)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端知识碎片">
 <meta property="og:url" content="http://leacent.github.io/2016/03/15/前端知识碎片/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="undefined和null区别
-  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”
-
-原型
-  每个函数都有一个原型属性prototype指向函数的自身原型，而每个有这个函数创建的对象都有一个proto">
-<meta property="og:updated_time" content="2017-03-20T01:36:58.000Z">
+<meta property="og:description" content="用async优雅的实现异步1234567891011121314function log(time)&amp;#123;  return new Promise((resolve,reject)=&amp;gt;&amp;#123;    setTimeout(()=&amp;gt; &amp;#123;      resolve(time)      console.log(`after $&amp;#123;time&amp;#125;s`)">
+<meta property="og:updated_time" content="2017-03-22T02:29:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端知识碎片">
-<meta name="twitter:description" content="undefined和null区别
-  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”
-
-原型
-  每个函数都有一个原型属性prototype指向函数的自身原型，而每个有这个函数创建的对象都有一个proto">
+<meta name="twitter:description" content="用async优雅的实现异步1234567891011121314function log(time)&amp;#123;  return new Promise((resolve,reject)=&amp;gt;&amp;#123;    setTimeout(()=&amp;gt; &amp;#123;      resolve(time)      console.log(`after $&amp;#123;time&amp;#125;s`)">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -185,7 +173,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="undefined和null区别"><a href="#undefined和null区别" class="headerlink" title="undefined和null区别"></a>undefined和null区别</h5><blockquote>
+        <h5 id="用async优雅的实现异步"><a href="#用async优雅的实现异步" class="headerlink" title="用async优雅的实现异步"></a>用async优雅的实现异步</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span> &#123;</div><div class="line">      resolve(time)</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`after <span class="subst">$&#123;time&#125;</span>s`</span>)</div><div class="line">    &#125;,time )</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">(<span class="keyword">async</span> ()=&gt;&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="keyword">await</span> log(<span class="number">3000</span>)</div><div class="line">  <span class="keyword">let</span> b = <span class="keyword">await</span> log(<span class="number">1000</span>)</div><div class="line">  <span class="keyword">let</span> c = <span class="keyword">await</span> log(<span class="number">10</span>)</div><div class="line">&#125;)()</div><div class="line"><span class="comment">// 按顺序输出a、b、c的结果</span></div></pre></td></tr></table></figure>
+<h5 id="undefined和null区别"><a href="#undefined和null区别" class="headerlink" title="undefined和null区别"></a>undefined和null区别</h5><blockquote>
 <p>  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”</p>
 </blockquote>
 <h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><blockquote>
@@ -319,8 +308,8 @@
     </a>
   
   
-    <a href="/2013/03/28/novel/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">零与零之间</div>
+    <a href="/2016/02/21/跨域解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">跨域解决方案</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -409,11 +398,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">life diary</a>
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -422,10 +411,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
             
             <div class="clearfix"></div>
