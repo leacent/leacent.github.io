@@ -154,6 +154,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前端知识碎片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/前端知识碎片/">前端知识碎片</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/15/前端知识碎片/" class="archive-article-date">
+  	<time datetime="2016-03-15T06:16:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="用async优雅的实现异步"><a href="#用async优雅的实现异步" class="headerlink" title="用async优雅的实现异步"></a>用async优雅的实现异步</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span> &#123;</div><div class="line">      resolve(time)</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`after <span class="subst">$&#123;time&#125;</span>s`</span>)</div><div class="line">    &#125;,time )</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">(<span class="keyword">async</span> ()=&gt;&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="keyword">await</span> log(<span class="number">3000</span>)</div><div class="line">  <span class="keyword">let</span> b = <span class="keyword">await</span> log(<span class="number">1000</span>)</div><div class="line">  <span class="keyword">let</span> c = <span class="keyword">await</span> log(<span class="number">10</span>)</div><div class="line">&#125;)()</div><div class="line"><span class="comment">// 按顺序输出a、b、c的结果</span></div></pre></td></tr></table></figure>
+<h5 id="undefined和null区别"><a href="#undefined和null区别" class="headerlink" title="undefined和null区别"></a>undefined和null区别</h5><blockquote>
+<p>  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”</p>
+</blockquote>
+<h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><blockquote>
+<p>  每个函数都有一个原型属性prototype指向函数的自身原型，而每个有这个函数创建的对象都有一个<strong>proto</strong>指向自己的原型，然后逐层深入直到最后Object的原型对象null</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2016/03/15/前端知识碎片/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/15/前端知识碎片/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-跨域解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/21/跨域解决方案/">跨域解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/21/跨域解决方案/" class="archive-article-date">
+  	<time datetime="2016-02-21T02:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、跨域资源共享（CORS）<br>在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。<br>二、JSONP<br>Web 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求：<br>
+        
+          <a class="article-more-a" href="/2016/02/21/跨域解决方案/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/21/跨域解决方案/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-跨域资源共享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -644,128 +772,6 @@
 
 
   
-    <article id="post-novel-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/19/novel-7/">十</a>
-    </h1>
-  
-
-        
-        <a href="/2013/03/19/novel-7/" class="archive-article-date">
-  	<time datetime="2013-03-19T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="color: #666;font-size:14px"><br>十<br>　　　“柳园里我和心爱者曾经相遇，她雪白的小脚从柳园里经过。她要我把爱情看淡些却不肯同意。……但我年轻而愚蠢，如今泪如潮”——叶芝<br>　　　我行走在高中母校的校道上，太阳有点热辣，把地上的落叶都烤黄烤干，我踩在上面发出吱吱的声响。在几年前快要被融化的暑假，我靠在榕树旁亲吻了羞涩的唐子姗，周围很安静一个人都没有，却怎么也阻止不了可爱的红晕散在她脸上。此时校园依然静谧，暑假到了，学生也都放假回去了，我是故意挑这个时间来的。一个人，才会让这些感情更真实地流露，不是吗？<br>
-        
-          <a class="article-more-a" href="/2013/03/19/novel-7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/03/19/novel-7/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-novel-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/18/novel-8/">十一</a>
-    </h1>
-  
-
-        
-        <a href="/2013/03/18/novel-8/" class="archive-article-date">
-  	<time datetime="2013-03-18T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><p style="color: #666;font-size:14px"><br>十一<br>　　　早上六点半，我骑着电动车出去买菜了。康叔一直坚持说要我去他的公司实习，他说村里人才必须重视和帮助。我只顾含笑答应。七点半，我就吃完早餐了。<br>　　　我带着小侄子去隔壁邻居家摘了许多桃子，然后又跟他玩了一整天，半个暑假差不多就这样过去了。<br>　　　虽然，上次遇到唐子姗又让我痛苦地自我折磨了一番，但是真实的生活还是得继续的，时间和那人类强大的本能让我很顺利继续着这条年轻的生命。<br>
-        
-          <a class="article-more-a" href="/2013/03/18/novel-8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/03/18/novel-8/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -851,19 +857,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">novel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
               </li>
             
             <div class="clearfix"></div>

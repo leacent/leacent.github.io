@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://leacent.github.io">
-  <title>前端知识碎片 | Leacent</title>
+  <title>Archives: 2017/4 | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用async优雅的实现异步1234567891011121314function log(time)&amp;#123;  return new Promise((resolve,reject)=&amp;gt;&amp;#123;    setTimeout(()=&amp;gt; &amp;#123;      resolve(time)      console.log(`after $&amp;#123;time&amp;#125;s`)">
-<meta property="og:type" content="article">
-<meta property="og:title" content="前端知识碎片">
-<meta property="og:url" content="http://leacent.github.io/2016/03/15/前端知识碎片/index.html">
+  <meta name="description" content="leacent的个人网站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leacent">
+<meta property="og:url" content="http://leacent.github.io/archives/2017/04/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="用async优雅的实现异步1234567891011121314function log(time)&amp;#123;  return new Promise((resolve,reject)=&amp;gt;&amp;#123;    setTimeout(()=&amp;gt; &amp;#123;      resolve(time)      console.log(`after $&amp;#123;time&amp;#125;s`)">
-<meta property="og:updated_time" content="2017-03-22T02:29:46.000Z">
+<meta property="og:description" content="leacent的个人网站">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端知识碎片">
-<meta name="twitter:description" content="用async优雅的实现异步1234567891011121314function log(time)&amp;#123;  return new Promise((resolve,reject)=&amp;gt;&amp;#123;    setTimeout(()=&amp;gt; &amp;#123;      resolve(time)      console.log(`after $&amp;#123;time&amp;#125;s`)">
+<meta name="twitter:title" content="Leacent">
+<meta name="twitter:description" content="leacent的个人网站">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -153,171 +152,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-前端知识碎片" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      前端知识碎片
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/23/mind/" class="archive-article-date">
+  	<time datetime="2017-04-22T16:33:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/23/mind/">mind</a>
     </h1>
   
 
-        
-        <a href="/2016/03/15/前端知识碎片/" class="archive-article-date">
-  	<time datetime="2016-03-15T06:16:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="用async优雅的实现异步"><a href="#用async优雅的实现异步" class="headerlink" title="用async优雅的实现异步"></a>用async优雅的实现异步</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span> &#123;</div><div class="line">      resolve(time)</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`after <span class="subst">$&#123;time&#125;</span>s`</span>)</div><div class="line">    &#125;,time )</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">(<span class="keyword">async</span> ()=&gt;&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="keyword">await</span> log(<span class="number">3000</span>)</div><div class="line">  <span class="keyword">let</span> b = <span class="keyword">await</span> log(<span class="number">1000</span>)</div><div class="line">  <span class="keyword">let</span> c = <span class="keyword">await</span> log(<span class="number">10</span>)</div><div class="line">&#125;)()</div><div class="line"><span class="comment">// 按顺序输出a、b、c的结果</span></div></pre></td></tr></table></figure>
-<h5 id="undefined和null区别"><a href="#undefined和null区别" class="headerlink" title="undefined和null区别"></a>undefined和null区别</h5><blockquote>
-<p>  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”</p>
-</blockquote>
-<h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><blockquote>
-<p>  每个函数都有一个原型属性prototype指向函数的自身原型，而每个有这个函数创建的对象都有一个<strong>proto</strong>指向自己的原型，然后逐层深入直到最后Object的原型对象null</p>
-</blockquote>
-<a id="more"></a>
-<h5 id="实现一个拖拽"><a href="#实现一个拖拽" class="headerlink" title="实现一个拖拽"></a>实现一个拖拽</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#banner'</span>).mousedown(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> abs_x = e.pageX-$(<span class="string">'.moveBar'</span>).offset().left</div><div class="line">    <span class="keyword">var</span> abs_y = e.pageY-$(<span class="string">'.moveBar'</span>).offset().top</div><div class="line">    <span class="keyword">var</span> move = <span class="literal">true</span></div><div class="line">    $(<span class="built_in">document</span>).mousemove(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">      <span class="keyword">if</span>(move)&#123;</div><div class="line">        $(<span class="string">'.moveBar'</span>).css(&#123;</div><div class="line">          <span class="string">'left'</span>:e.pageX-abs_x,</div><div class="line">          <span class="string">'top'</span>: e.pageY-abs_y</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;).mouseup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      move = <span class="literal">false</span></div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h5 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h5><blockquote>
-<p>基本模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Parent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>.name = <span class="string">'parent'</span> ;</div><div class="line">&#125; ;</div><div class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name ;</div><div class="line">&#125; ;</div><div class="line">Parent.prototype.obj = &#123;<span class="attr">a</span> : <span class="number">1</span>&#125; ;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Child = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'child'</span> ;</div><div class="line">&#125; ;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent() ;</div><div class="line"></div><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent() ;</div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child() ;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(parent.getName()) ; <span class="comment">//parent</span></div><div class="line"><span class="built_in">console</span>.log(child.getName()) ; <span class="comment">//child</span></div></pre></td></tr></table></figure></p>
-<p>构造函数模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Parent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</div><div class="line">&#125;</div><div class="line">Parent.prototype  = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</div><div class="line"><span class="keyword">var</span> Child = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    Parent.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</div><div class="line">&#125;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent() ;</div><div class="line"></div><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">'myParent'</span>) ;</div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">'myChild'</span>) ;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(parent.getName()) ; <span class="comment">//myParent</span></div><div class="line"><span class="built_in">console</span>.log(child.getName()) ; <span class="comment">//myChild</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="传值还是引用"><a href="#传值还是引用" class="headerlink" title="传值还是引用"></a>传值还是引用</h4><p>1、传值传内存拷贝不会改变引用的值<br>2、传引用是传内存指针</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeStuff</span>(<span class="params">num, obj1, obj2</span>)</span>&#123;</div><div class="line">    num = num * <span class="number">10</span>;</div><div class="line">    obj1.item = <span class="string">"changed"</span>;</div><div class="line">    obj2 = &#123;<span class="attr">item</span>: <span class="string">"changed"</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">item</span>: <span class="string">"unchanged"</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">item</span>: <span class="string">"unchanged"</span>&#125;;</div><div class="line">changeStuff(num, obj1, obj2);</div><div class="line"><span class="built_in">console</span>.log(num);   <span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(obj1.item);    <span class="comment">// changed</span></div><div class="line"><span class="built_in">console</span>.log(obj2.item);    <span class="comment">// unchanged</span></div><div class="line"></div><div class="line"><span class="comment">//解释</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeStuff</span>(<span class="params">num, obj1, obj2</span>)</span></div><div class="line">&#123;</div><div class="line">    num = num * <span class="number">10</span>; <span class="comment">// 对num赋值，修改num的指向，新内存的内容为old_num * 10</span></div><div class="line">    obj1.item = <span class="string">"changed"</span>;  <span class="comment">// 修改原始obj1内存中的内容</span></div><div class="line">    obj2 = &#123;<span class="attr">item</span>: <span class="string">"changed"</span>&#125;;   <span class="comment">// 对obj2赋值，修改obj2指向，新内存的内容为&#123;item: "changed"&#125;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="写维护性的JavaScript代码"><a href="#写维护性的JavaScript代码" class="headerlink" title="写维护性的JavaScript代码"></a>写维护性的JavaScript代码</h4><p>1、封装JavaScript<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">    // somecode goes here</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
-<p>2、nameSpace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myAppNamespace = &#123;</div><div class="line">    attr1: &quot;val1&quot;,</div><div class="line">    attr2: &quot;val2&quot;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>3、modular pattern<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var modularpattern = (function() &#123;</div><div class="line">    // your module code goes here</div><div class="line">    var sum = 0 ;</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">        add:function() &#123;</div><div class="line">            sum = sum + 1;</div><div class="line">            return sum;</div><div class="line">        &#125;,</div><div class="line">        reset:function() &#123;</div><div class="line">            return sum = 0;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;());</div><div class="line">alert(modularpattern.add());    // alerts: 1</div></pre></td></tr></table></figure></p>
-<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><h4 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125; <span class="comment">// 定义一个对象</span></div><div class="line"><span class="keyword">var</span> oParent = o.__proto__ <span class="comment">// 这个为对象o的原型</span></div><div class="line">oParent.b = <span class="number">3</span>;</div><div class="line">oParent.c = <span class="number">4</span>;</div><div class="line"></div><div class="line"><span class="comment">// 原型链为：</span></div><div class="line">&#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>&#125; ---&gt; &#123;<span class="attr">b</span>:<span class="number">3</span>, <span class="attr">c</span>:<span class="number">4</span>&#125; ---&gt; <span class="literal">null</span></div></pre></td></tr></table></figure>
-<h4 id="原型继承-1"><a href="#原型继承-1" class="headerlink" title="原型继承"></a>原型继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Parent = &#123;</div><div class="line">    <span class="attr">a</span>:<span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.a)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> Children = <span class="built_in">Object</span>.create(Parent)</div><div class="line">Children.a = <span class="string">"123"</span></div><div class="line">Children.b() <span class="comment">// alert a is 123 </span></div><div class="line"><span class="comment">// 当继承函数被调用时候，this指向当前继承对象，而不是原型</span></div></pre></td></tr></table></figure>
-<h5 id="用普通语法创建对象"><a href="#用普通语法创建对象" class="headerlink" title="用普通语法创建对象"></a>用普通语法创建对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span></div><div class="line">&#125;</div><div class="line">o.hasOwnProperty(<span class="string">'a'</span>) <span class="comment">// true</span></div><div class="line"><span class="comment">// 普通创建对象时候，o继承了Object.prototype上面的所有属性</span></div><div class="line"><span class="comment">// 所以o拥有hasOwnProperty等属性</span></div><div class="line"><span class="comment">// 原型链如下</span></div><div class="line"><span class="comment">// o ---&gt; Object.prototype ---&gt; null</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">'LOL'</span>]</div><div class="line"><span class="comment">// 数组都继承Array.prototype</span></div></pre></td></tr></table></figure>
-<h5 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Obfn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'leacent'</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ob = <span class="keyword">new</span> Obfn()</div></pre></td></tr></table></figure>
-<h5 id="Object-create创建对象"><a href="#Object-create创建对象" class="headerlink" title="Object.create创建对象"></a>Object.create创建对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>:<span class="string">'leacent'</span>&#125;</div><div class="line"><span class="keyword">var</span> b = <span class="built_in">Object</span>.create(a)</div></pre></td></tr></table></figure>
-<h5 id="Class创建对象"><a href="#Class创建对象" class="headerlink" title="Class创建对象"></a>Class创建对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name,age)&#123;</div><div class="line">         <span class="keyword">this</span>.name = <span class="string">'lea'</span></div><div class="line">         <span class="keyword">this</span>.age  = <span class="number">25</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">     <span class="keyword">constructor</span>()&#123;</div><div class="line">         <span class="keyword">super</span>()</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Child() <span class="comment">//  Child &#123;name: "lea", age: 25&#125;</span></div></pre></td></tr></table></figure>
-<h4 id="内存生命周期"><a href="#内存生命周期" class="headerlink" title="内存生命周期"></a>内存生命周期</h4><blockquote>
-<p>  1、分配所需要的内存<br>  2、使用分配到的内存<br>  3、不需要时释放/归还</p>
-</blockquote>
-<p>JavaScript在定义变量时候完成了内存分配<br>var n = 123  // 给数值变量分配内存<br>var s = ‘asdd’ // 给字符串分配内存<br>var o = {<br>    name:’lea’<br>}   // 给对象分配内存<br>var arr = [1,2,3] // 给数组分配内存</p>
-<h4 id="页面重排与重绘"><a href="#页面重排与重绘" class="headerlink" title="页面重排与重绘"></a>页面重排与重绘</h4><pre><code>1、解析HTML以构建DOM树: 渲染引擎解析HTML生成标签DOM节点 。称为内容树。
-2、构建渲染树： 解析CSS、包括js生成的样式，创建渲染树
-3、计算DOM节点的位置、大小。
-4、根据渲染树绘制页面
-</code></pre><h5 id="引起页面重排和重绘"><a href="#引起页面重排和重绘" class="headerlink" title="引起页面重排和重绘"></a>引起页面重排和重绘</h5><pre><code>1、直接操作DOM，比如增加、修改DOM节点会导致重排和重绘
-2、移动和改变DOM位置
-3、修改样式
-4、resize窗口
-5、修改默认字体
-</code></pre><h5 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h5><pre><code>1、避免直接修改DOM，而是修改className
-2、少用table布局（table布局容易因为小的改动而导致重新布局）
-3、为动画加上position：absolute/fixed属性减少重绘
-4、尽可能修改层级低的dom节点
-5、如果要直接操作DOM，缓存要操作的DOM节点
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2016/03/15/前端知识碎片/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/06/15/vim/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vim使用笔记
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/02/21/跨域解决方案/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">跨域解决方案</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
+    
 
 
           </div>
@@ -340,8 +228,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
