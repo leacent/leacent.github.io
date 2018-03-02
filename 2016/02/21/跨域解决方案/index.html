@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://leacent.github.io">
   <title>跨域解决方案 | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、跨域资源共享（CORS）在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。二、JSONPWeb 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求：">
+  <meta name="description" content="一、跨域资源共享（CORS）在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。二、JSONPWeb 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求（但是无法处理POST请求，而且无法判断请求的失败与否。。。只能通过超时时间来确定）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跨域解决方案">
 <meta property="og:url" content="http://leacent.github.io/2016/02/21/跨域解决方案/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="一、跨域资源共享（CORS）在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。二、JSONPWeb 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求：">
-<meta property="og:updated_time" content="2017-03-22T03:05:12.000Z">
+<meta property="og:description" content="一、跨域资源共享（CORS）在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。二、JSONPWeb 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求（但是无法处理POST请求，而且无法判断请求的失败与否。。。只能通过超时时间来确定）">
+<meta property="og:updated_time" content="2018-02-26T08:29:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域解决方案">
-<meta name="twitter:description" content="一、跨域资源共享（CORS）在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。二、JSONPWeb 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求：">
+<meta name="twitter:description" content="一、跨域资源共享（CORS）在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。二、JSONPWeb 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求（但是无法处理POST请求，而且无法判断请求的失败与否。。。只能通过超时时间来确定）">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -173,7 +173,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、跨域资源共享（CORS）<br>在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。<br>二、JSONP<br>Web 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求：<br><a id="more"></a><br>1、首先前端先设置好回调函数，并将其作为 url 的参数。<br>2、服务端接收到请求后，通过该参数获得回调函数名，并将数据放在参数中将其返回<br>3、收到结果后因为是 script 标签，所以浏览器会当做是脚本进行运行，从而达到跨域获取数据的目的。<br>三、服务器代理<br>前端将无法进行跨域访问的请求，交给服务器处理，服务器把代理请求的结果返回给前端，这样对于浏览器来说就是同域了。<br>四、window.name<br>1、通过统一窗口共享window.name的原理，进行数据传递。<br>五、document.domain<br>对于主域相同而子域不同的情况下，可以通过设置 document.domain 的办法来解决，具体做法是可以在 <a href="http://www.example.com/a.html" target="_blank" rel="external">http://www.example.com/a.html</a> 和 <a href="http://sub.example.com/b.html" target="_blank" rel="external">http://sub.example.com/b.html</a> 两个文件分别加上 document.domain = “a.com”；然后通过 a.html 文件创建一个 iframe，去控制 iframe 的 window，从而进行交互。</p>
+        <p>一、跨域资源共享（CORS）<br>在服务器设置接受前端跨域请求， Access-Control-Allow-Origin: *，前端浏览器支持跨域资源共享，双方符合即可进行跨域请求。<br>二、JSONP<br>Web 页面上调用 js 文件不受浏览器同源策略的影响，所以通过 Script 便签可以进行跨域的请求（但是无法处理POST请求，而且无法判断请求的失败与否。。。只能通过超时时间来确定）<br><a id="more"></a><br>1、首先前端先设置好回调函数，并将其作为 url 的参数。<br>2、服务端接收到请求后，通过该参数获得回调函数名，并将数据放在参数中将其返回<br>3、收到结果后因为是 script 标签，所以浏览器会当做是脚本进行运行，从而达到跨域获取数据的目的。<br>三、服务器代理<br>因为浏览器有那个同源策略，就是必须要协议、端口、域名、子域名。。。相同才会让你通过请求，但是服务端不存在，所以可以通过先请求服务端，然后服务端再去请求目标服务器后返回结果给前端，而达到跨域。<br>四、window.name<br>1、通过统一窗口共享window.name的原理，进行数据传递。<br>五、document.domain<br>对于主域相同而子域不同的情况下，可以通过设置 document.domain 的办法来解决，具体做法是可以在 <a href="http://www.example.com/a.html" target="_blank" rel="external">http://www.example.com/a.html</a> 和 <a href="http://sub.example.com/b.html" target="_blank" rel="external">http://sub.example.com/b.html</a> 两个文件分别加上 document.domain = “a.com”；然后通过 a.html 文件创建一个 iframe，去控制 iframe 的 window，从而进行交互。</p>
 
       
 
@@ -286,7 +286,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Leacent Song
+    		&copy; 2018 Leacent Song
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

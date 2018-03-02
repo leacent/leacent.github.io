@@ -154,6 +154,141 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-执行上下文栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/01/执行上下文栈/">执行上下文栈</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/01/执行上下文栈/" class="archive-article-date">
+  	<time datetime="2018-03-01T06:17:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/01/执行上下文栈/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/Linux/">Linux ~~</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/26/Linux/" class="archive-article-date">
+  	<time datetime="2017-10-26T01:56:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h4><h5 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h5><blockquote>
+<p>ls -l<br>显示详细的文件列表<br>ls -<br>按照上一次修改时间排序文件</p>
+</blockquote>
+<h5 id="cp命令"><a href="#cp命令" class="headerlink" title="cp命令"></a>cp命令</h5><blockquote>
+<p>cp -p fileA fileB<br>从A文件的内容拷贝到B文件<br>cp fileA direB<br>将A文件复制到B目录</p>
+</blockquote>
+<h5 id="file"><a href="#file" class="headerlink" title="file"></a>file</h5><blockquote>
+<p>file A.png 输出文件信息<br>a.txt: ASCII text</p>
+</blockquote>
+<h5 id="less"><a href="#less" class="headerlink" title="less"></a>less</h5><blockquote>
+<p>less a.txt 快速查看文件</p>
+</blockquote>
+<h5 id="top"><a href="#top" class="headerlink" title="top"></a>top</h5><blockquote>
+<p>显示系统状况<br>PID — 进程id<br>USER — 进程所有者<br>PR — 进程优先级<br>NI — nice值。负值表示高优先级，正值表示低优先级<br>VIRT — 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES<br>RES — 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA<br>SHR — 共享内存大小，单位kb<br>S — 进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程<br>%CPU — 上次更新到现在的CPU时间占用百分比<br>%MEM — 进程使用的物理内存百分比<br>TIME+ — 进程使用的CPU时间总计，单位1/100秒<br>COMMAND — 进程名称（命令名/命令行）</p>
+</blockquote>
+<h5 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h5><blockquote>
+<p>tar命令可以为linux的文件和目录创建档案。利用tar，可以为某一特定文件创建档案（备份文件）<br>首先要弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件。<br>必要参数有如下：<br>-A 新增压缩文件到已存在的压缩<br>-B 设置区块大小<br>-c 建立新的压缩文件<br>-d 记录文件的差别<br>-r 添加文件到已经压缩的文件<br>-u 添加改变了和现有的文件到已经存在的压缩文件<br>-x 从压缩的文件中提取文件<br>-t 显示压缩文件的内容<br>-z 支持gzip解压文件<br>-j 支持bzip2解压文件<br>-Z 支持compress解压文件<br>-v 显示操作过程<br>-l 文件系统边界设置<br>-k 保留原有文件不覆盖<br>-m 保留文件不被覆盖<br>-W 确认压缩文件的正确性<br>可选参数如下：<br>-b 设置区块数目<br>-C 切换到指定目录<br>-f 指定压缩文件<br>–help 显示帮助信息<br>–version 显示版本信息<br>tar -cvf log.tar log2012.log    仅打包，不压缩！<br>tar -zcvf log.tar.gz log2012.log   打包后，以 gzip 压缩<br>tar -zcvf log.tar.bz2 log2012.log  打包后，以 bzip2 压缩 </p>
+</blockquote>
+<h5 id="ps-process-status-列举系统运行进程的状态"><a href="#ps-process-status-列举系统运行进程的状态" class="headerlink" title="ps(process status)列举系统运行进程的状态"></a>ps(process status)列举系统运行进程的状态</h5><p>a  显示所有进程<br>-a 显示同一终端下的所有程序<br>-A 显示所有进程<br>c  显示进程的真实名称<br>-N 反向选择<br>-e 等于“-A”<br>e  显示环境变量<br>f  显示程序间的关系<br>-H 显示树状结构<br>r  显示当前终端的进程<br>T  显示当前终端的所有程序<br>u  指定用户的所有进程<br>-au 显示较详细的资讯<br>-aux 显示所有包含其他使用者的行程<br>-C&lt;命令&gt; 列出指定命令的状况<br>–lines&lt;行数&gt; 每页显示的行数<br>–width&lt;字符数&gt; 每页显示的字符数<br>–help 显示帮助信息<br>–version 显示版本显示</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/26/Linux/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-2017入秋" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -212,70 +347,6 @@
 
 
   
-    <article id="post-数据结构与算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/14/数据结构与算法/">数据结构与算法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/14/数据结构与算法/" class="archive-article-date">
-  	<time datetime="2017-10-14T03:22:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>推导大O阶方法<blockquote>
-<p>1、用常数1取代运行时间中的所有加法常数<br>2、在修改后的运行次数函数中，只保留最高阶项<br>3、如果最高阶项存在且不是1，则去除与这个项目相乘的常数，得到的结果就是大O阶。</p>
-</blockquote>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/14/数据结构与算法/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-前端面试题收录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,6 +379,14 @@
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Greeter = <span class="function">(<span class="params">strategy</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">this</span>.strategy = strategy</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> Strategy = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Strategy.prototype.execute = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Strategy#execute needs to be overridden.'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> GreetingStrategy = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line">GreetingStrategy.prototype = <span class="built_in">Object</span>.create(Strategy.prototype)</div><div class="line"></div><div class="line">GreetingStrategy.prototype.execute = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.sayHi() + <span class="keyword">this</span>.sayBye()</div><div class="line">&#125;</div><div class="line">GreetingStrategy.prototype.sayHi = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">'Hello, '</span></div><div class="line">&#125;</div><div class="line">GreetingStrategy.prototype.sayBye = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">'Goodbye, '</span></div><div class="line">&#125;</div><div class="line">Greeter.prototype.greet = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.strategy.execute()</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> greeter = <span class="keyword">new</span> Greeter(<span class="keyword">new</span> GreetingStrategy())</div><div class="line"></div><div class="line">greeter.greet() <span class="comment">//=&gt; 'Hello, Goodbye.'</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> PoliteGreetingStrategy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">PoliteGreetingStrategy.prototype = <span class="built_in">Object</span>.create(GreetingStrategy.prototype)</div><div class="line">PoliteGreetingStrategy.prototype.sayHi = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"Welcome sir, "</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> FriendlyGreetingStrategy = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line">FriendlyGreetingStrategy.prototype = <span class="built_in">Object</span>.create(GreetingStrategy.prototype)</div><div class="line">FriendlyGreetingStrategy.prototype.sayHi = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"Hey, "</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> politeGreeter   = <span class="keyword">new</span> Greeter(<span class="keyword">new</span> PoliteGreetingStrategy())</div><div class="line"><span class="keyword">let</span> friendlyGreeter = <span class="keyword">new</span> Greeter(<span class="keyword">new</span> FriendlyGreetingStrategy())</div><div class="line">politeGreeter.greet()   <span class="comment">//=&gt; 'Welcome sir, Goodbye.'</span></div><div class="line">friendlyGreeter.greet() <span class="comment">//=&gt; 'Hey, Goodbye.'</span></div></pre></td></tr></table></figure>
 <h4 id="4、手写jsonp以及常见的响应码"><a href="#4、手写jsonp以及常见的响应码" class="headerlink" title="4、手写jsonp以及常见的响应码"></a>4、手写jsonp以及常见的响应码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> url = <span class="string">"http://www.example.net/api?callback=getName"</span></div><div class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>)</div><div class="line">script.src = url; <span class="built_in">document</span>.body.appendChild(script)</div><div class="line">&lt;script&gt;</div><div class="line">  getName = <span class="function">(<span class="params">name, age</span>) =&gt;</span> &#123;</div><div class="line">    name &amp;&amp; <span class="built_in">window</span>.name = name</div><div class="line">    age &amp;&amp; <span class="built_in">window</span>.age = age</div><div class="line">  &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="5、获取浏览器URL中查询字符串中的参数"><a href="#5、获取浏览器URL中查询字符串中的参数" class="headerlink" title="5、获取浏览器URL中查询字符串中的参数"></a>5、获取浏览器URL中查询字符串中的参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showWindowHref</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> sHref = <span class="built_in">window</span>.location.href;</div><div class="line">    <span class="keyword">var</span> args = sHref.split(<span class="string">'?'</span>);</div><div class="line">    <span class="keyword">if</span>(args[<span class="number">0</span>] == sHref)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> arr = args[<span class="number">1</span>].split(<span class="string">'&amp;'</span>);</div><div class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt; arr.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> arg = arr[i].split(<span class="string">'='</span>);</div><div class="line">        obj[arg[<span class="number">0</span>]] = arg[<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> href = showWindowHref(); <span class="comment">// obj</span></div><div class="line"><span class="built_in">console</span>.log(href[<span class="string">'name'</span>]); <span class="comment">// xiaoming</span></div></pre></td></tr></table></figure>
+<h4 id="6、-typeof和instanceof"><a href="#6、-typeof和instanceof" class="headerlink" title="6、 typeof和instanceof"></a>6、 typeof和instanceof</h4><blockquote>
+<p>相同点：JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。<br>typeof的定义和用法：返回值是一个字符串，用来说明变量的数据类型。<br>Instanceof定义和用法：instanceof 用于判断一个变量是否属于某个对象的实例。</p>
+<p>(1)、typeof 一般只能返回如下几个结果：number,boolean,string,function,object,undefined。</p>
+<p>(2)、typeof 来获取一个变量是否存在，如 if(typeof a!=”undefined”){alert(“ok”)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错。</p>
+<p>(3)、对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。</p>
+</blockquote>
+
       
 
       
@@ -331,68 +410,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/12/前端面试题收录/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JavaScript内存浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/JavaScript内存浅析/">JavaScript内存浅析</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/JavaScript内存浅析/" class="archive-article-date">
-  	<time datetime="2017-05-10T08:01:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="内存生命周期"><a href="#内存生命周期" class="headerlink" title="内存生命周期"></a>内存生命周期</h4><p>不管什么程序语言，内存生命周期基本是一致的：   </p>
-<p>1、分配你所需要的内存 </p>
-<p>2、使用分配到的内存（读、写）</p>
-<p>3、不需要时将其释放\归还</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/10/JavaScript内存浅析/">read more >></a>
         </p>
       
 
@@ -579,53 +596,6 @@
 
 
   
-    <article id="post-web开遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/web开遇到的坑/">web开遇到的坑</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/22/web开遇到的坑/" class="archive-article-date">
-  	<time datetime="2017-03-22T06:13:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/22/web开遇到的坑/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-codeAndLife" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -749,6 +719,79 @@
 
 
   
+    <article id="post-BFC-块级格式化上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/23/BFC-块级格式化上下文/">BFC-块级格式化上下文</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/23/BFC-块级格式化上下文/" class="archive-article-date">
+  	<time datetime="2016-07-23T02:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="块级格式化上下文-是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。"><a href="#块级格式化上下文-是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。" class="headerlink" title="块级格式化上下文 是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。"></a><strong>块级格式化上下文</strong> 是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。</h5><blockquote>
+<p>简单来说，BFC能创建一个内部与外界互不影响的盒子。在实际项目中，盒子外边距折叠、包容盒子坍塌之类的情况可以用BFC原理解决。</p>
+</blockquote>
+<h5 id="块级格式化上下文由以下之一创建："><a href="#块级格式化上下文由以下之一创建：" class="headerlink" title="块级格式化上下文由以下之一创建："></a>块级格式化上下文由以下之一创建：</h5><ul>
+<li>根元素或其它包含它的元素</li>
+<li>浮动 (元素的 float 不是 none)</li>
+<li>绝对定位的元素 (元素具有 position 为 absolute 或 fixed)</li>
+<li>内联块 inline-blocks (元素具有 display: inline-block)</li>
+<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
+<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
+<li>块元素 元素具有overflow 值不是 visible</li>
+<li>display: flow-root</li>
+</ul>
+        
+          <a class="article-more-a" href="/2016/07/23/BFC-块级格式化上下文/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/23/BFC-块级格式化上下文/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -763,7 +806,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Leacent Song
+    		&copy; 2018 Leacent Song
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
