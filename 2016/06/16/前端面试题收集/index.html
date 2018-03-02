@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://leacent.github.io/2016/06/16/前端面试题收集/index.html">
 <meta property="og:site_name" content="Leacent">
 <meta property="og:description" content="1.实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean)进行复制1234567Object.prototype.clone = function(o)&amp;#123;  var o = this.constructor === Array ? [] : &amp;#123;&amp;#125;  for(var e in">
-<meta property="og:updated_time" content="2017-10-19T01:55:02.000Z">
+<meta property="og:updated_time" content="2018-03-02T06:42:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题收集">
 <meta name="twitter:description" content="1.实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean)进行复制1234567Object.prototype.clone = function(o)&amp;#123;  var o = this.constructor === Array ? [] : &amp;#123;&amp;#125;  for(var e in">
@@ -180,7 +180,7 @@
 <p><strong>方法一</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lis = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>).getElementsByTagName(<span class="string">'li'</span>)</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;lis.length;i++)&#123;</div><div class="line">  lis[i].index = i</div><div class="line">  lis[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.index)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>方法二</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lis=<span class="built_in">document</span>.getElementById(<span class="string">'test'</span>).getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">    lis[i].index=i;</div><div class="line">    lis[i].onclick=(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            alert(a);</div><div class="line">        &#125;</div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h5 id="4、如何理解call和apply？两者有什么不同"><a href="#4、如何理解call和apply？两者有什么不同" class="headerlink" title="4、如何理解call和apply？两者有什么不同?"></a>4、如何理解call和apply？两者有什么不同?</h5><blockquote>
-<p>call和apply是为了动态绑定this而出现的,即改变运行时上下文。<br>apply第二个参数传入的是一个参数数组，而call传入的是</p>
+<p>call和apply是为了动态绑定this而出现的,即改变运行时上下文。<br>apply第二个参数传入的是一个参数数组，而call传入的是<br>通俗的说，call 和 apply 可以借助别人的能力，比如 猫.抓老鼠.call(狗)， 明星.赚钱.call(我)，这样即获得自己本身没有的能力。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Cat.prototype.catch = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="keyword">this</span>.name ,<span class="string">'抓到一只'</span>, <span class="keyword">this</span>.mouse)&#125;</div><div class="line">Cat.prototype.name = <span class="string">'helloKitty'</span></div><div class="line">Cat.prototype.mouse = <span class="string">'XXmouse'</span></div><div class="line"><span class="keyword">let</span> helloKitty = <span class="keyword">new</span> Cat()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Tom</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Tom.prototype.name = <span class="string">'tom'</span></div><div class="line">Tom.prototype.mouse = <span class="string">'jerry'</span></div><div class="line"><span class="keyword">let</span> tom = <span class="keyword">new</span> Tom()</div><div class="line">helloKitty.catch.call(tom) <span class="comment">// tom 抓到一只 jerry</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 <h5 id="5、在Javascript中什么是伪数组？如何判断一个数组是否为伪数组？如何将伪数组转化为标准数组？"><a href="#5、在Javascript中什么是伪数组？如何判断一个数组是否为伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="5、在Javascript中什么是伪数组？如何判断一个数组是否为伪数组？如何将伪数组转化为标准数组？"></a>5、在Javascript中什么是伪数组？如何判断一个数组是否为伪数组？如何将伪数组转化为标准数组？</h5><p>1、不具有push、pop等数组方法<br>2、有length属性<br>3、按索引方式存储数据<br>比如:<br>var fakeArray01 = {0:’a’,1:’b’,length:2}</p>
 <blockquote>
@@ -369,15 +369,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">about</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">

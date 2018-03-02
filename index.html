@@ -154,27 +154,39 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-执行上下文栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-内存空间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/01/执行上下文栈/">执行上下文栈</a>
+      <a class="article-title" href="/2018/03/02/内存空间/">内存空间</a>
     </h1>
   
 
         
-        <a href="/2018/03/01/执行上下文栈/" class="archive-article-date">
-  	<time datetime="2018-03-01T06:17:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+        <a href="/2018/03/02/内存空间/" class="archive-article-date">
+  	<time datetime="2018-03-02T03:05:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="一、堆和栈"><a href="#一、堆和栈" class="headerlink" title="一、堆和栈"></a>一、堆和栈</h4><p>堆栈是两种数据结构：</p>
+<ul>
+<li>栈（stack） 栈stack为自动分配的内存空间，它由系统自动释放，先进后出，后进先出；</li>
+<li>堆（heap） 堆heap是动态分配的内存，大小不定也不会自动释放，是类似json的key-value存取。</li>
+</ul>
+<p>JavaScript 中的变量分为基本类型和引用类型。</p>
+<ul>
+<li><p>基本类型 （Undefined、Null、Boolean、Number、String、Symbol）<br>基本类型在内存中占据空间小、大小固定 ，他们的值保存在栈(stack)空间，是按值来访问</p>
+</li>
+<li><p>引用类型 （对象、数组、函数）<br>引用类型占据空间大、大小不固定, 栈内存中存放地址指向堆(heap)内存中的对象。是按引用访问的</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> b = a</div><div class="line">b = <span class="number">2</span></div><div class="line"><span class="comment">// a 依然还是1，因为这里的a值是存储在栈内存中的，b直接等于a，相当于开了一个新的栈，彼此之间的值互不影响</span></div><div class="line"><span class="keyword">var</span> c = &#123;<span class="attr">name</span>: <span class="string">'LOL'</span>&#125;</div><div class="line"><span class="keyword">var</span> d = c</div><div class="line">d.name = <span class="string">'王者'</span></div><div class="line"><span class="built_in">console</span>.log(c.name ) <span class="comment">// 王者</span></div><div class="line"><span class="comment">// c的值是存在堆内存中的，换句话说c只是一个指向&#123;name: 'LOL'&#125;内存指针，只是个地址，当 d = c时相当于复制了 c 指针指向同一个内存地址，所以当改变同一个地址上的值的时候，彼此引用的都会改变。</span></div></pre></td></tr></table></figure>
       
 
       
@@ -197,7 +209,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/01/执行上下文栈/">read more >></a>
+          <a class="article-more-a" href="/2018/03/02/内存空间/">read more >></a>
         </p>
       
 
@@ -378,7 +390,7 @@
 <h5 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h5><p style="color: red; font-size: 16px">策略模式是指对一系列的算法定义，并将每一个算法封装起来，而且使它们还可以相互替换。策略模式让算法独立于使用它的客户而独立变化。</p>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Greeter = <span class="function">(<span class="params">strategy</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">this</span>.strategy = strategy</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> Strategy = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Strategy.prototype.execute = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Strategy#execute needs to be overridden.'</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> GreetingStrategy = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line">GreetingStrategy.prototype = <span class="built_in">Object</span>.create(Strategy.prototype)</div><div class="line"></div><div class="line">GreetingStrategy.prototype.execute = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.sayHi() + <span class="keyword">this</span>.sayBye()</div><div class="line">&#125;</div><div class="line">GreetingStrategy.prototype.sayHi = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">'Hello, '</span></div><div class="line">&#125;</div><div class="line">GreetingStrategy.prototype.sayBye = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">'Goodbye, '</span></div><div class="line">&#125;</div><div class="line">Greeter.prototype.greet = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.strategy.execute()</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> greeter = <span class="keyword">new</span> Greeter(<span class="keyword">new</span> GreetingStrategy())</div><div class="line"></div><div class="line">greeter.greet() <span class="comment">//=&gt; 'Hello, Goodbye.'</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> PoliteGreetingStrategy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">PoliteGreetingStrategy.prototype = <span class="built_in">Object</span>.create(GreetingStrategy.prototype)</div><div class="line">PoliteGreetingStrategy.prototype.sayHi = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"Welcome sir, "</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> FriendlyGreetingStrategy = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</div><div class="line">FriendlyGreetingStrategy.prototype = <span class="built_in">Object</span>.create(GreetingStrategy.prototype)</div><div class="line">FriendlyGreetingStrategy.prototype.sayHi = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"Hey, "</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> politeGreeter   = <span class="keyword">new</span> Greeter(<span class="keyword">new</span> PoliteGreetingStrategy())</div><div class="line"><span class="keyword">let</span> friendlyGreeter = <span class="keyword">new</span> Greeter(<span class="keyword">new</span> FriendlyGreetingStrategy())</div><div class="line">politeGreeter.greet()   <span class="comment">//=&gt; 'Welcome sir, Goodbye.'</span></div><div class="line">friendlyGreeter.greet() <span class="comment">//=&gt; 'Hey, Goodbye.'</span></div></pre></td></tr></table></figure>
-<h4 id="4、手写jsonp以及常见的响应码"><a href="#4、手写jsonp以及常见的响应码" class="headerlink" title="4、手写jsonp以及常见的响应码"></a>4、手写jsonp以及常见的响应码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> url = <span class="string">"http://www.example.net/api?callback=getName"</span></div><div class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>)</div><div class="line">script.src = url; <span class="built_in">document</span>.body.appendChild(script)</div><div class="line">&lt;script&gt;</div><div class="line">  getName = <span class="function">(<span class="params">name, age</span>) =&gt;</span> &#123;</div><div class="line">    name &amp;&amp; <span class="built_in">window</span>.name = name</div><div class="line">    age &amp;&amp; <span class="built_in">window</span>.age = age</div><div class="line">  &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="4、jsonp"><a href="#4、jsonp" class="headerlink" title="4、jsonp"></a>4、jsonp</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> url = <span class="string">"http://www.example.net/api?callback=getName"</span></div><div class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>)</div><div class="line">script.src = url; <span class="built_in">document</span>.body.appendChild(script)</div><div class="line">&lt;script&gt;</div><div class="line">  getName = <span class="function">(<span class="params">name, age</span>) =&gt;</span> &#123;</div><div class="line">    name &amp;&amp; <span class="built_in">window</span>.name = name</div><div class="line">    age &amp;&amp; <span class="built_in">window</span>.age = age</div><div class="line">  &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="5、获取浏览器URL中查询字符串中的参数"><a href="#5、获取浏览器URL中查询字符串中的参数" class="headerlink" title="5、获取浏览器URL中查询字符串中的参数"></a>5、获取浏览器URL中查询字符串中的参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showWindowHref</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> sHref = <span class="built_in">window</span>.location.href;</div><div class="line">    <span class="keyword">var</span> args = sHref.split(<span class="string">'?'</span>);</div><div class="line">    <span class="keyword">if</span>(args[<span class="number">0</span>] == sHref)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> arr = args[<span class="number">1</span>].split(<span class="string">'&amp;'</span>);</div><div class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt; arr.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> arg = arr[i].split(<span class="string">'='</span>);</div><div class="line">        obj[arg[<span class="number">0</span>]] = arg[<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> href = showWindowHref(); <span class="comment">// obj</span></div><div class="line"><span class="built_in">console</span>.log(href[<span class="string">'name'</span>]); <span class="comment">// xiaoming</span></div></pre></td></tr></table></figure>
 <h4 id="6、-typeof和instanceof"><a href="#6、-typeof和instanceof" class="headerlink" title="6、 typeof和instanceof"></a>6、 typeof和instanceof</h4><blockquote>
 <p>相同点：JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。<br>typeof的定义和用法：返回值是一个字符串，用来说明变量的数据类型。<br>Instanceof定义和用法：instanceof 用于判断一个变量是否属于某个对象的实例。</p>
@@ -877,15 +889,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">about</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">

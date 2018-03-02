@@ -6,17 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://leacent.github.io">
-  <title>Archives: 2013 | Leacent</title>
+  <title>内存空间 | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leacent的个人网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leacent">
-<meta property="og:url" content="http://leacent.github.io/archives/2013/index.html">
+  <meta name="description" content="一、堆和栈堆栈是两种数据结构：
+
+栈（stack） 栈stack为自动分配的内存空间，它由系统自动释放，先进后出，后进先出；
+堆（heap） 堆heap是动态分配的内存，大小不定也不会自动释放，是类似json的key-value存取。
+
+JavaScript 中的变量分为基本类型和引用类型。
+
+基本类型 （Undefined、Null、Boolean、Number、String、Symbol）基本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存空间">
+<meta property="og:url" content="http://leacent.github.io/2018/03/02/内存空间/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="leacent的个人网站">
+<meta property="og:description" content="一、堆和栈堆栈是两种数据结构：
+
+栈（stack） 栈stack为自动分配的内存空间，它由系统自动释放，先进后出，后进先出；
+堆（heap） 堆heap是动态分配的内存，大小不定也不会自动释放，是类似json的key-value存取。
+
+JavaScript 中的变量分为基本类型和引用类型。
+
+基本类型 （Undefined、Null、Boolean、Number、String、Symbol）基本">
+<meta property="og:updated_time" content="2018-03-02T03:52:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leacent">
-<meta name="twitter:description" content="leacent的个人网站">
+<meta name="twitter:title" content="内存空间">
+<meta name="twitter:description" content="一、堆和栈堆栈是两种数据结构：
+
+栈（stack） 栈stack为自动分配的内存空间，它由系统自动释放，先进后出，后进先出；
+堆（heap） 堆heap是动态分配的内存，大小不定也不会自动释放，是类似json的key-value存取。
+
+JavaScript 中的变量分为基本类型和引用类型。
+
+基本类型 （Undefined、Null、Boolean、Number、String、Symbol）基本">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -152,406 +174,132 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-内存空间" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内存空间
+    </h1>
+  
+
+        
+        <a href="/2018/03/02/内存空间/" class="archive-article-date">
+  	<time datetime="2018-03-02T03:05:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、堆和栈"><a href="#一、堆和栈" class="headerlink" title="一、堆和栈"></a>一、堆和栈</h4><p>堆栈是两种数据结构：</p>
+<ul>
+<li>栈（stack） 栈stack为自动分配的内存空间，它由系统自动释放，先进后出，后进先出；</li>
+<li>堆（heap） 堆heap是动态分配的内存，大小不定也不会自动释放，是类似json的key-value存取。</li>
+</ul>
+<p>JavaScript 中的变量分为基本类型和引用类型。</p>
+<ul>
+<li><p>基本类型 （Undefined、Null、Boolean、Number、String、Symbol）<br>基本类型在内存中占据空间小、大小固定 ，他们的值保存在栈(stack)空间，是按值来访问</p>
+</li>
+<li><p>引用类型 （对象、数组、函数）<br>引用类型占据空间大、大小不固定, 栈内存中存放地址指向堆(heap)内存中的对象。是按引用访问的</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> b = a</div><div class="line">b = <span class="number">2</span></div><div class="line"><span class="comment">// a 依然还是1，因为这里的a值是存储在栈内存中的，b直接等于a，相当于开了一个新的栈，彼此之间的值互不影响</span></div><div class="line"><span class="keyword">var</span> c = &#123;<span class="attr">name</span>: <span class="string">'LOL'</span>&#125;</div><div class="line"><span class="keyword">var</span> d = c</div><div class="line">d.name = <span class="string">'王者'</span></div><div class="line"><span class="built_in">console</span>.log(c.name ) <span class="comment">// 王者</span></div><div class="line"><span class="comment">// c的值是存在堆内存中的，换句话说c只是一个指向&#123;name: 'LOL'&#125;内存指针，只是个地址，当 d = c时相当于复制了 c 指针指向同一个内存地址，所以当改变同一个地址上的值的时候，彼此引用的都会改变。</span></div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/28/novel/" class="archive-article-date">
-  	<time datetime="2013-03-28T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/28/novel/">零与零之间</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2018/03/02/内存空间/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/25/novel-1/" class="archive-article-date">
-  	<time datetime="2013-03-25T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/25/novel-1/">三</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/26/Linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux ~~</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/24/novel-2/" class="archive-article-date">
-  	<time datetime="2013-03-24T08:22:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/24/novel-2/">五</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/23/novel-3/" class="archive-article-date">
-  	<time datetime="2013-03-23T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/23/novel-3/">六</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/22/novel-4/" class="archive-article-date">
-  	<time datetime="2013-03-22T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/22/novel-4/">七</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/21/novel-5/" class="archive-article-date">
-  	<time datetime="2013-03-21T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/21/novel-5/">八</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/20/novel-6/" class="archive-article-date">
-  	<time datetime="2013-03-20T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/20/novel-6/">九</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/19/novel-7/" class="archive-article-date">
-  	<time datetime="2013-03-19T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/19/novel-7/">十</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/18/novel-8/" class="archive-article-date">
-  	<time datetime="2013-03-18T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/18/novel-8/">十一</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/03/17/novel-9/" class="archive-article-date">
-  	<time datetime="2013-03-17T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/03/17/novel-9/">十二</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2013/page/2/">2</a><a class="extend next" rel="next" href="/archives/2013/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -574,8 +322,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
