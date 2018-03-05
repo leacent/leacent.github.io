@@ -154,6 +154,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-BFC-块级格式化上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/23/BFC-块级格式化上下文/">BFC-块级格式化上下文</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/23/BFC-块级格式化上下文/" class="archive-article-date">
+  	<time datetime="2016-07-23T02:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="块级格式化上下文-是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。"><a href="#块级格式化上下文-是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。" class="headerlink" title="块级格式化上下文 是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。"></a><strong>块级格式化上下文</strong> 是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。</h5><blockquote>
+<p>简单来说，BFC能创建一个内部与外界互不影响的盒子。在实际项目中，盒子外边距折叠、包容盒子坍塌之类的情况可以用BFC原理解决。</p>
+</blockquote>
+<h5 id="块级格式化上下文由以下之一创建："><a href="#块级格式化上下文由以下之一创建：" class="headerlink" title="块级格式化上下文由以下之一创建："></a>块级格式化上下文由以下之一创建：</h5><ul>
+<li>根元素或其它包含它的元素</li>
+<li>浮动 (元素的 float 不是 none)</li>
+<li>绝对定位的元素 (元素具有 position 为 absolute 或 fixed)</li>
+<li>内联块 inline-blocks (元素具有 display: inline-block)</li>
+<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
+<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
+<li>块元素 元素具有overflow 值不是 visible</li>
+<li>display: flow-root</li>
+</ul>
+        
+          <a class="article-more-a" href="/2016/07/23/BFC-块级格式化上下文/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/23/BFC-块级格式化上下文/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-前端缓存概要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -364,7 +437,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="用async优雅的实现异步"><a href="#用async优雅的实现异步" class="headerlink" title="用async优雅的实现异步"></a>用async优雅的实现异步</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span> &#123;</div><div class="line">      resolve(time)</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`after <span class="subst">$&#123;time&#125;</span>s`</span>)</div><div class="line">    &#125;,time )</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">(<span class="keyword">async</span> ()=&gt;&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="keyword">await</span> log(<span class="number">3000</span>)</div><div class="line">  <span class="keyword">let</span> b = <span class="keyword">await</span> log(<span class="number">1000</span>)</div><div class="line">  <span class="keyword">let</span> c = <span class="keyword">await</span> log(<span class="number">10</span>)</div><div class="line">&#125;)()</div><div class="line"><span class="comment">// 按顺序输出a、b、c的结果</span></div></pre></td></tr></table></figure>
+        <h4 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h4><p>首先明确几个概念：</p>
+<ul>
+<li>EC：函数执行环境（或执行上下文），Execution Context</li>
+<li>ECS：执行环境栈，Execution Context Stack</li>
+<li>VO：变量对象，Variable Object</li>
+<li>AO：活动对象，Active Object</li>
+<li>scope chain：作用域链</li>
+</ul>
+<p>每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它会形成一个作用域。JavaScript中的运行环境大概包括三种情况。</p>
+<ul>
+<li>全局环境：JavaScript代码运行起来会首先进入该环境</li>
+<li>函数环境：当函数被调用执行时，会进入当前函数中执行代码</li>
+<li>eval（不建议使用，可忽略）</li>
+</ul>
+<h5 id="用async优雅的实现异步"><a href="#用async优雅的实现异步" class="headerlink" title="用async优雅的实现异步"></a>用async优雅的实现异步</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">time</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span> &#123;</div><div class="line">      resolve(time)</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`after <span class="subst">$&#123;time&#125;</span>s`</span>)</div><div class="line">    &#125;,time )</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">(<span class="keyword">async</span> ()=&gt;&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="keyword">await</span> log(<span class="number">3000</span>)</div><div class="line">  <span class="keyword">let</span> b = <span class="keyword">await</span> log(<span class="number">1000</span>)</div><div class="line">  <span class="keyword">let</span> c = <span class="keyword">await</span> log(<span class="number">10</span>)</div><div class="line">&#125;)()</div><div class="line"><span class="comment">// 按顺序输出a、b、c的结果</span></div></pre></td></tr></table></figure>
 <h5 id="undefined和null区别"><a href="#undefined和null区别" class="headerlink" title="undefined和null区别"></a>undefined和null区别</h5><blockquote>
 <p>  一个重要的区别，服务于不同的目的和理由。区分这两个值，你可以认为undefined代表一个意想不到的没有值而null作为预期没有值的代表。typeof undefined为字符串“undefined”，typeof null为“Object”</p>
 </blockquote>
@@ -704,67 +791,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2013/03/24/novel-2/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-novel-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/23/novel-3/">六</a>
-    </h1>
-  
-
-        
-        <a href="/2013/03/23/novel-3/" class="archive-article-date">
-  	<time datetime="2013-03-23T08:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="color: #666;font-size:14px"><br>六<br>　　　我正在写着东西，小涛一个电话提醒了我，今天聚会时间快到了。<br>　　　我脑袋嗡了一下，又是聚会！<br>　　　于是我随便洗把脸就跟着他出去了。<br>　　　“在哪聚呢？”<br>　　　“还有哪，下面花园草坪啊。”<br>　　　其实，我就认识除小涛外的两个人。但靠着酒精和乡音，我们又很快熟悉了起来。<br>　　　“你以前是哪个班的？”<br>　　　“高三十九班的。”<br>　　　“真的？我也是啊”<br>　　　“那时你是钟小博教的吗？教语文的那个啊。”<br>　　　“对啊。”<br>　　　“说起来是同门师兄，只是你该叫我师兄啦，哈哈，我比你早进师门。”<br>　　　“可是那钟小博退隐江湖了。”<br>　　　“什么意思啊。”<br>　　　“就是不教了，教我们的时候就在备战公务员，现在都已经在工作了。”<br>　　　“哦，原来如此。”<br>　　　两个同门师兄就这样没完没了地讨论着“门派里”的事，慢慢熟悉。<br>
-        
-          <a class="article-more-a" href="/2013/03/23/novel-3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">novel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/03/23/novel-3/">read more >></a>
         </p>
       
 

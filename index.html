@@ -154,6 +154,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-执行上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/02/执行上下文/">执行上下文</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/02/执行上下文/" class="archive-article-date">
+  	<time datetime="2018-03-02T06:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h4><p>首先明确几个概念：</p>
+<ul>
+<li>EC：函数执行环境（或执行上下文），Execution Context</li>
+<li>ECS：执行环境栈，Execution Context Stack</li>
+<li>VO：变量对象，Variable Object</li>
+<li>AO：活动对象，Active Object</li>
+<li>scope chain：作用域链</li>
+</ul>
+<p>每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它会形成一个作用域。</p>
+<blockquote>
+<p>可执行代码的类型<br>全局代码（Global code）<br>这种类型的代码是在”程序”级处理的：例如加载外部的js文件或者本地<script></script>标签内的代码。全局代码不包括任何function体内的代码。 这个是默认的代码运行环境，一旦代码被载入，引擎最先进入的就是这个环境。</p>
+<p>函数代码（Function code）<br>任何一个函数体内的代码，但是需要注意的是，具体的函数体内的代码是不包括内部函数的代码。</p>
+<p>Eval代码（Eval code）<br>eval内部的代码</p>
+</blockquote>
+<h4 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h4><p>上下文创建阶段： 建立作用域链、确定this的指向<br>上下文执行阶段： 执行代码、变量赋值以及函数引用<br>然后出栈，内存释放<br>参考文章：<br><a href="https://segmentfault.com/a/1190000012646211" target="_blank" rel="external">变量对象详解</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/02/执行上下文/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-内存空间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -717,79 +790,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/10/23/常用的三栏布局/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-BFC-块级格式化上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/23/BFC-块级格式化上下文/">BFC-块级格式化上下文</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/23/BFC-块级格式化上下文/" class="archive-article-date">
-  	<time datetime="2016-07-23T02:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="块级格式化上下文-是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。"><a href="#块级格式化上下文-是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。" class="headerlink" title="块级格式化上下文 是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。"></a><strong>块级格式化上下文</strong> 是web页面可视html渲染的一部分。它是块盒子的布局发生及浮动体彼此交互的区域。</h5><blockquote>
-<p>简单来说，BFC能创建一个内部与外界互不影响的盒子。在实际项目中，盒子外边距折叠、包容盒子坍塌之类的情况可以用BFC原理解决。</p>
-</blockquote>
-<h5 id="块级格式化上下文由以下之一创建："><a href="#块级格式化上下文由以下之一创建：" class="headerlink" title="块级格式化上下文由以下之一创建："></a>块级格式化上下文由以下之一创建：</h5><ul>
-<li>根元素或其它包含它的元素</li>
-<li>浮动 (元素的 float 不是 none)</li>
-<li>绝对定位的元素 (元素具有 position 为 absolute 或 fixed)</li>
-<li>内联块 inline-blocks (元素具有 display: inline-block)</li>
-<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
-<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
-<li>块元素 元素具有overflow 值不是 visible</li>
-<li>display: flow-root</li>
-</ul>
-        
-          <a class="article-more-a" href="/2016/07/23/BFC-块级格式化上下文/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/23/BFC-块级格式化上下文/">read more >></a>
         </p>
       
 
