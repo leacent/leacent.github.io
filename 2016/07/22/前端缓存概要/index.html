@@ -26,7 +26,7 @@
 缓存
 
 缓存是指存储指定资源的一份拷贝，并在下次请求该资源时提供该拷贝的技术。当 web 缓存发现请求的资源已经被存储，它会拦截请求，返回该资源的拷贝，而不会去源服务器重新下载。">
-<meta property="og:updated_time" content="2017-03-22T06:10:45.000Z">
+<meta property="og:updated_time" content="2018-03-12T03:39:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端缓存概要">
 <meta name="twitter:description" content="一、http的缓存
@@ -200,22 +200,62 @@
 <p>缓存是指存储指定资源的一份拷贝，并在下次请求该资源时提供该拷贝的技术。当 web 缓存发现请求的资源已经被存储，它会拦截请求，返回该资源的拷贝，而不会去源服务器重新下载。</p>
 </blockquote>
 <a id="more"></a>
-<p><strong>缓存大致可归为两类</strong>：私有与共享缓存。共享缓存存储的响应能够被多个用户使用。私有缓存只能用于单独用户。</p>
-<h5 id="缓存控制"><a href="#缓存控制" class="headerlink" title="缓存控制"></a>缓存控制</h5><p>完全不支持缓存</p>
-<blockquote>
-<p>缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。<br>Cache-Control: no-store<br>Cache-Control: no-cache, no-store, must-revalidate</p>
+<h4 id="一、Pragma"><a href="#一、Pragma" class="headerlink" title="一、Pragma"></a>一、Pragma</h4><blockquote>
+<p>http1.0时代的产物，值为no-cache时禁用缓存。但是，现在基本不用，3Cache-Control的优先级会高于Pragma</p>
 </blockquote>
-<p>不缓存内容</p>
-<blockquote>
-<p>在释放缓存内容前向服务端源地址发送请求以验证缓存是否有效。<br>Cache-Control: no-cache</p>
+<h4 id="二、Expires"><a href="#二、Expires" class="headerlink" title="二、Expires"></a>二、Expires</h4><blockquote>
+<p>expires的值是一个GMT格林尼治时间，通过设置这个时间告诉浏览器该资源的过期时间。如果，不过期则直接从缓存取值，不发送请求，返回200（from cache）<br>缺点是这里的时间是以客户端的时间为准的，如果用户的时间被调教过得话，会出现时间不正确，造成不能准确适用缓存的情况。</p>
 </blockquote>
-<p>缓存过期</p>
-<blockquote>
-<p>Cache-Control:max-age=12333543234<br>判断缓存是否过期的一个最常使用的标志是max-age。相对Expires而言，max-age是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js等静态资源。</p>
+<h4 id="三、cache-control-（也就是强制缓存）"><a href="#三、cache-control-（也就是强制缓存）" class="headerlink" title="三、cache-control （也就是强制缓存）"></a>三、cache-control （也就是强制缓存）</h4><blockquote>
+<p>以时间间隔标志失效时间，</p>
 </blockquote>
-<p>缓存验证</p>
-<blockquote>
-<p>Cache-Control: must-revalidate<br>must-revalidate:  在使用一些老的资源前强制验证状态判断其是否过期。详情看下文关于缓存校验的内容。</p>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no-cache</td>
+<td style="text-align:left">告诉服务器不直接使用缓存，而是向服务器发送求情。</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td style="text-align:left">所有内容都不缓存</td>
+</tr>
+<tr>
+<td>public</td>
+<td style="text-align:left">表明可以被任何对象缓存，包括客户端或者代理服务器</td>
+</tr>
+<tr>
+<td>private</td>
+<td style="text-align:left">表明只能被单个用户比如该浏览器用户或该系统用户</td>
+</tr>
+<tr>
+<td>max-age</td>
+<td style="text-align:left">告知客户端在max-age内都是未过期的，不用向服务器请求资源</td>
+</tr>
+<tr>
+<td>s-maxage</td>
+<td style="text-align:left">跟max-age一样，但是仅应用于共享缓存</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td style="text-align:left">告诉客户端不要对缓存数据就行改变</td>
+</tr>
+<tr>
+<td>only-if-cached</td>
+<td style="text-align:left">告知代理服务器客户端希望获取缓存的内容，若有，则不向原服务器发送请求</td>
+</tr>
+</tbody>
+</table>
+<p>Cache-Control: max-age=3600, must-revalidate<br>该资源缓存一个小时，在此时间内后续请求无需向服务器请求了。（max-age不能和no-cache搭配使用）</p>
+<h4 id="四、Last-Modified（协商缓存，该资源在服务器最后的修改时间）"><a href="#四、Last-Modified（协商缓存，该资源在服务器最后的修改时间）" class="headerlink" title="四、Last-Modified（协商缓存，该资源在服务器最后的修改时间）"></a>四、Last-Modified（协商缓存，该资源在服务器最后的修改时间）</h4><p>当服务器返回一些资源的时候会返回该资源最后修改的时间 即 Last-Modified的值（GMT格式）。当下次请求的时候，请求头会带上 If-Modified-Since 的时间即是之前记录的时间，服务器收到If-Modified-Since 的请求后会去和资源的最后修改时间对比。若修改过就返回最新资源，状态码 200，若没有修改过则返回 304。</p>
+<h4 id="Etag-If-None-Match（协商缓存）"><a href="#Etag-If-None-Match（协商缓存）" class="headerlink" title="Etag/If-None-Match（协商缓存）"></a>Etag/If-None-Match（协商缓存）</h4><p>Etag的值是由服务端生成的hash字符串（例如一个md5的值）<br>第一次请求的时候，服务端会生成并在响应头返回Etag，之后的请求头带上If-None-Match，服务器进行校验。相应的返回200或者304</p>
+<h6 id="last-modified-和-Etag-区别"><a href="#last-modified-和-Etag-区别" class="headerlink" title="last-modified 和 Etag 区别"></a>last-modified 和 Etag 区别</h6><blockquote>
+<p>服务器的last-modified 只能精确到秒，如果一秒内多次修改内容，则无法获取最新的内容。<br>有些服务器不支持获取资源最后的修改时间<br>Etag属于强验证类型，资源服务器和代理服务器计算Etag的算法一致才能保值Etag的值是一致的。<br>Etag的精度比last-modified的精度和优先级都高。</p>
 </blockquote>
 
       
@@ -404,11 +444,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
               </li>
              
               <li class="article-tag-list-item">

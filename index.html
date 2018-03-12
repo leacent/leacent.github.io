@@ -154,6 +154,53 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-web安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/web安全/">web安全</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/06/web安全/" class="archive-article-date">
+  	<time datetime="2018-03-06T10:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/web安全/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-执行上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -188,7 +235,11 @@
 <p>函数代码（Function code）<br>任何一个函数体内的代码，但是需要注意的是，具体的函数体内的代码是不包括内部函数的代码。</p>
 <p>Eval代码（Eval code）<br>eval内部的代码</p>
 </blockquote>
-<h4 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h4><p>上下文创建阶段： 建立作用域链、确定this的指向<br>上下文执行阶段： 执行代码、变量赋值以及函数引用<br>然后出栈，内存释放<br>参考文章：<br><a href="https://segmentfault.com/a/1190000012646211" target="_blank" rel="external">变量对象详解</a></p>
+<h4 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h4><blockquote>
+<p>如果变量与执行上下文相关，那变量自己应该知道它的数据存储在哪里，并且知道如何访问。这种机制称为变量对象(variable object)。</p>
+<p>变量对象(缩写为VO)是一个与执行上下文相关的特殊对象，它存储着在上下文中声明的以下内容：<br>    变量 (var, 变量声明);<br>    函数声明 (FunctionDeclaration, 缩写为FD);<br>    函数的形参</p>
+</blockquote>
+<p>上下文创建阶段： 建立作用域链、确定this的指向<br>上下文执行阶段： 执行代码、变量赋值以及函数引用<br>然后出栈，内存释放<br>参考文章：<br><a href="https://segmentfault.com/a/1190000012646211" target="_blank" rel="external">变量对象详解</a></p>
 
       
 
@@ -743,70 +794,9 @@
 
 
   
-    <article id="post-常用的三栏布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/23/常用的三栏布局/">常用的三栏布局</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/23/常用的三栏布局/" class="archive-article-date">
-  	<time datetime="2016-10-23T08:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src='/images/layout-1.png' /><br>
-        
-          <a class="article-more-a" href="/2016/10/23/常用的三栏布局/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/23/常用的三栏布局/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -893,11 +883,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
               </li>
              
               <li class="article-tag-list-item">

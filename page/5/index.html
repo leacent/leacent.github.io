@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://leacent.github.io">
-  <title>Vim使用笔记 | Leacent</title>
+  <title>Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="截取了vim自带的一些常用命令">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Vim使用笔记">
-<meta property="og:url" content="http://leacent.github.io/2016/06/15/vim/index.html">
+  <meta name="description" content="leacent的个人网站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leacent">
+<meta property="og:url" content="http://leacent.github.io/page/5/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="截取了vim自带的一些常用命令">
-<meta property="og:updated_time" content="2017-03-15T08:14:39.000Z">
+<meta property="og:description" content="leacent的个人网站">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim使用笔记">
-<meta name="twitter:description" content="截取了vim自带的一些常用命令">
+<meta name="twitter:title" content="Leacent">
+<meta name="twitter:description" content="leacent的个人网站">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -153,89 +152,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vim" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-about" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Vim使用笔记
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/03/15/about/">about</a>
     </h1>
   
 
         
-        <a href="/2016/06/15/vim/" class="archive-article-date">
-  	<time datetime="2016-06-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-15</time>
+        <a href="/2010/03/15/about/" class="archive-article-date">
+  	<time datetime="2010-03-15T09:07:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2010-03-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>截取了vim自带的一些常用命令<br><a id="more"></a></p>
-<pre style="font-size:14px;background-color: #fafafa;border-radius: 4px;">
-<code style="font-size:14px;color: #333">
-1. 光標在屏幕文本中的移動既可以用箭頭鍵，也可以使用 hjkl 字母鍵。
-
-         h (左移)       j (下行)       k (上行)     l (右移)
-
-2. 欲進入vim編輯器(從命令行提示符)，請輸入︰vim 文件名 <回車>
-
-3. 欲退出vim編輯器，請輸入以下命令放棄所有修改︰
-
-      <esc>   :q!      <回車>
-
-    或者輸入以下命令保存所有修改︰
-
-      <esc>   :wq      <回車>
-
-4. 在正常模式下刪除光標所在位置的字符，請按︰ x
-
-5. 欲從當前光標刪除至單字/單詞末尾，請輸入︰dw
-
-6. 欲從當前光標刪除至當前行末尾，請輸入︰d$
-
-7. 欲刪除整行，請輸入︰dd
-   2dd 删除2行
-
-8、撤销：u
-
-9、反撤销：ctr+r
-
-10、要重新置入已經刪除的文本內容，請輸入小寫字母 p。該操作可以將已刪除
-    的文本內容置于光標之後。如果最後一次刪除的是一個整行，那麼該行將置
-    于當前光標所在行的下一行。
-
-11、 要替換光標所在位置的字符，請輸入小寫的 r 和要替換掉原位置字符的新字
-     符即可。
-
-12. 更改類命令允許您改變指定的對象，從當前光標所在位置直到對象的末尾。
-     比如輸入 cw 可以替換當前光標到單詞的末尾的內容；輸入 c$ 可以替換當
-     前光標到行末的內容。
-13、 Ctrl-g 用于顯示當前光標所在位置和文件狀態信息。Shift-G 用于將光標跳
-     轉至文件最後一行。先敲入一個行號然後按 Shift-G 則是將光標移動至該行
-     號代表的行。
-
-14、 輸入 / 然後緊隨一個字符串是則是在當前所編輯的文檔中向後查找該字符串。
-     輸入問號 ? 然後緊隨一個字符串是則是在當前所編輯的文檔中向前查找該字
-     符串。完成一次查找之後按 n 鍵則是重復上一次的命令，可在同一方向上查
-     找下一個字符串所在；或者按 Shift-N 向相反方向查找下該字符串所在。
-
-15、 如果光標當前位置是括號(、)、[、]、{、}，按 % 可以將光標移動到配對的
-     括號上。
-16、：输入命令，！执行外部shell命令 :!pwd 表示列出当前路径
-17、輸入小寫的 o 可以在光標下方打開新的一行並將光標置于新開的行首，進入插入模式。
-    輸入大寫的 O 可以在光標上方打開新的一行並將光標置于新開的行首，進入插入模式。
-
-18、輸入小寫的 a 可以在光標所在位置之後插入文本。
-    輸入大寫的 A 可以在光標所在行的行末之後插入文本。
-
-19、輸入大寫的 R 將進入替換模式，直至按 <esc> 鍵退出替換模式而進入正常模式。
-20、輸入 :set xxx 可以設置 xxx 選項。
-21、/test 可以匹配test 按n多次查找
-  </esc></回車></esc></回車></esc></回車></code>
-</pre>
+        
       
 
       
@@ -248,7 +187,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">about</a>
         		</li>
       		
 		</ul>
@@ -257,87 +196,27 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2010/03/15/about/">read more >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2016/06/15/vim/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2016/06/16/前端面试题收集/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端面试题收集
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/03/15/前端知识碎片/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端知识碎片</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
 
 
 
 
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
 
 
           </div>
@@ -359,8 +238,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -30,7 +30,7 @@ AO：活动对象，Active Object
 scope chain：作用域链
 
 每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它">
-<meta property="og:updated_time" content="2018-03-02T07:25:36.000Z">
+<meta property="og:updated_time" content="2018-03-06T06:13:21.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="执行上下文">
 <meta name="twitter:description" content="执行上下文首先明确几个概念：
@@ -211,7 +211,11 @@ scope chain：作用域链
 <p>函数代码（Function code）<br>任何一个函数体内的代码，但是需要注意的是，具体的函数体内的代码是不包括内部函数的代码。</p>
 <p>Eval代码（Eval code）<br>eval内部的代码</p>
 </blockquote>
-<h4 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h4><p>上下文创建阶段： 建立作用域链、确定this的指向<br>上下文执行阶段： 执行代码、变量赋值以及函数引用<br>然后出栈，内存释放<br>参考文章：<br><a href="https://segmentfault.com/a/1190000012646211" target="_blank" rel="external">变量对象详解</a></p>
+<h4 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h4><blockquote>
+<p>如果变量与执行上下文相关，那变量自己应该知道它的数据存储在哪里，并且知道如何访问。这种机制称为变量对象(variable object)。</p>
+<p>变量对象(缩写为VO)是一个与执行上下文相关的特殊对象，它存储着在上下文中声明的以下内容：<br>    变量 (var, 变量声明);<br>    函数声明 (FunctionDeclaration, 缩写为FD);<br>    函数的形参</p>
+</blockquote>
+<p>上下文创建阶段： 建立作用域链、确定this的指向<br>上下文执行阶段： 执行代码、变量赋值以及函数引用<br>然后出栈，内存释放<br>参考文章：<br><a href="https://segmentfault.com/a/1190000012646211" target="_blank" rel="external">变量对象详解</a></p>
 
       
 
@@ -294,6 +298,15 @@ scope chain：作用域链
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/03/06/web安全/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          web安全
+        
+      </div>
+    </a>
   
   
     <a href="/2018/03/02/内存空间/" id="article-nav-older" class="article-nav-link-wrap">
@@ -390,11 +403,11 @@ scope chain：作用域链
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
               </li>
              
               <li class="article-tag-list-item">
