@@ -26,7 +26,7 @@
 缓存
 
 缓存是指存储指定资源的一份拷贝，并在下次请求该资源时提供该拷贝的技术。当 web 缓存发现请求的资源已经被存储，它会拦截请求，返回该资源的拷贝，而不会去源服务器重新下载。">
-<meta property="og:updated_time" content="2018-03-12T03:39:31.000Z">
+<meta property="og:updated_time" content="2018-03-12T03:40:09.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端缓存概要">
 <meta name="twitter:description" content="一、http的缓存
@@ -201,7 +201,7 @@
 </blockquote>
 <a id="more"></a>
 <h4 id="一、Pragma"><a href="#一、Pragma" class="headerlink" title="一、Pragma"></a>一、Pragma</h4><blockquote>
-<p>http1.0时代的产物，值为no-cache时禁用缓存。但是，现在基本不用，3Cache-Control的优先级会高于Pragma</p>
+<p>http1.0时代的产物，值为no-cache时禁用缓存。但是，现在基本不用，Cache-Control的优先级会高于Pragma</p>
 </blockquote>
 <h4 id="二、Expires"><a href="#二、Expires" class="headerlink" title="二、Expires"></a>二、Expires</h4><blockquote>
 <p>expires的值是一个GMT格林尼治时间，通过设置这个时间告诉浏览器该资源的过期时间。如果，不过期则直接从缓存取值，不发送请求，返回200（from cache）<br>缺点是这里的时间是以客户端的时间为准的，如果用户的时间被调教过得话，会出现时间不正确，造成不能准确适用缓存的情况。</p>
