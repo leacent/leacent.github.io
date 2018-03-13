@@ -6,18 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://leacent.github.io">
-  <title>web安全 | Leacent</title>
+  <title>作用域与闭包 | Leacent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leacent的个人网站">
+  <meta name="description" content="下面部分内容引用《你不知道JavaScript》
+
+作用域
+作用域是一套规则，用于确定在何处及如何查找变量。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。查找失败的话则会抛出ReferenceError（对这个变量进行不正确的操作时候会抛出TypeError）
+
+ReferenceError 同作用域判别失败相关，而 TypeErr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web安全">
-<meta property="og:url" content="http://leacent.github.io/2018/03/06/web安全/index.html">
+<meta property="og:title" content="作用域与闭包">
+<meta property="og:url" content="http://leacent.github.io/2018/03/12/作用域链与闭包/index.html">
 <meta property="og:site_name" content="Leacent">
-<meta property="og:description" content="leacent的个人网站">
-<meta property="og:updated_time" content="2018-03-06T10:36:34.334Z">
+<meta property="og:description" content="下面部分内容引用《你不知道JavaScript》
+
+作用域
+作用域是一套规则，用于确定在何处及如何查找变量。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。查找失败的话则会抛出ReferenceError（对这个变量进行不正确的操作时候会抛出TypeError）
+
+ReferenceError 同作用域判别失败相关，而 TypeErr">
+<meta property="og:updated_time" content="2018-03-13T06:29:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web安全">
-<meta name="twitter:description" content="leacent的个人网站">
+<meta name="twitter:title" content="作用域与闭包">
+<meta name="twitter:description" content="下面部分内容引用《你不知道JavaScript》
+
+作用域
+作用域是一套规则，用于确定在何处及如何查找变量。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。查找失败的话则会抛出ReferenceError（对这个变量进行不正确的操作时候会抛出TypeError）
+
+ReferenceError 同作用域判别失败相关，而 TypeErr">
   
     <link rel="alternative" href="/atom.xml" title="Leacent" type="application/atom+xml">
   
@@ -153,27 +168,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-web安全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-作用域链与闭包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      web安全
+      作用域与闭包
     </h1>
   
 
         
-        <a href="/2018/03/06/web安全/" class="archive-article-date">
-  	<time datetime="2018-03-06T10:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
+        <a href="/2018/03/12/作用域链与闭包/" class="archive-article-date">
+  	<time datetime="2018-03-12T08:14:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p> 下面部分内容引用《你不知道JavaScript》</p>
+</blockquote>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><blockquote>
+<p>作用域是一套规则，用于确定在何处及如何查找变量。如果查找的目的是对<br>变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。查找失败的话则会抛出ReferenceError（对这个变量进行不正确的操作时候会抛出TypeError）</p>
+<ul>
+<li>ReferenceError 同作用域判别失败相关，而 TypeError 则代表作用域判别成功了，但是对 结果的操作是非法或不合理的。</li>
+</ul>
+</blockquote>
+<p>作用域查找会在找到第一个匹配的标识符时停止。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> b = <span class="string">'lol'</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">c</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> b = <span class="string">'LOLLLLL'</span></div><div class="line">		<span class="built_in">console</span>.log(b)</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> c()</div><div class="line">&#125;</div><div class="line">a() <span class="comment">// LOLLLLL</span></div></pre></td></tr></table></figure></p>
+<h4 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h4><p>eval 接收一个字符串为参数，可以在运行时解析字符串，动态改变词法作用域。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">str, a</span>) </span>&#123; </div><div class="line">  <span class="built_in">eval</span>( str ); <span class="comment">// 欺骗! console.log( a, b );</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">foo( <span class="string">"var b = 3;"</span>, <span class="number">1</span> ); <span class="comment">// 1, 3</span></div><div class="line">在严格模式的程序中，<span class="built_in">eval</span>(..) 在运行时有其自己的词法作用域，意味着其 中的声明无法修改所在的作用域。</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">str</span>) </span>&#123; <span class="string">"use strict"</span>;</div><div class="line"><span class="built_in">eval</span>( str );</div><div class="line">                     <span class="built_in">console</span>.log( a ); <span class="comment">// ReferenceError: a is not de ned</span></div><div class="line">                 &#125;</div><div class="line">                 foo( <span class="string">"var a = 2"</span> );</div></pre></td></tr></table></figure></p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><blockquote>
+<p>当查找变量的时候，会在当前从上下文的变量对象中查找，如果没有找到这个变量，那么它会寻找父级的，直到最顶层全局作用域。这样多个执行上下文的变量构成的链表就叫做作用域链。</p>
+</blockquote>
+<p>JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，具体过程如下(ECMA262中所述):</p>
+<blockquote>
+<p>任何执行上下文时刻的作用域, 都是由作用域链(scope chain, 后面介绍)来实现.<br>在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的[[scope]]属性.<br>在一个函数对象被调用的时候，会创建一个 <strong>活动对象</strong> (也就是一个对象), 然后对于每一个函数的形参，都命名为该活动对象的命名属性, 然后将这个活动对象做为此时的作用域链(scope chain)最前端, 并将这个函数对象的[[scope]]加入到scope chain中.</p>
+</blockquote>
+
       
 
       
@@ -181,6 +214,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -231,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2018/03/06/web安全/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://leacent.github.io/2018/03/12/作用域链与闭包/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -245,18 +289,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/12/作用域链与闭包/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          作用域与闭包
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/02/执行上下文/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">执行上下文</div>
+    <a href="/2018/03/06/web安全/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web安全</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -154,6 +154,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-作用域链与闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/12/作用域链与闭包/">作用域与闭包</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/12/作用域链与闭包/" class="archive-article-date">
+  	<time datetime="2018-03-12T08:14:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p> 下面部分内容引用《你不知道JavaScript》</p>
+</blockquote>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><blockquote>
+<p>作用域是一套规则，用于确定在何处及如何查找变量。如果查找的目的是对<br>变量进行赋值，那么就会使用 LHS 查询;如果目的是获取变量的值，就会使用 RHS 查询。查找失败的话则会抛出ReferenceError（对这个变量进行不正确的操作时候会抛出TypeError）</p>
+<ul>
+<li>ReferenceError 同作用域判别失败相关，而 TypeError 则代表作用域判别成功了，但是对 结果的操作是非法或不合理的。</li>
+</ul>
+</blockquote>
+<p>作用域查找会在找到第一个匹配的标识符时停止。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> b = <span class="string">'lol'</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">c</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> b = <span class="string">'LOLLLLL'</span></div><div class="line">		<span class="built_in">console</span>.log(b)</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> c()</div><div class="line">&#125;</div><div class="line">a() <span class="comment">// LOLLLLL</span></div></pre></td></tr></table></figure></p>
+<h4 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h4><p>eval 接收一个字符串为参数，可以在运行时解析字符串，动态改变词法作用域。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">str, a</span>) </span>&#123; </div><div class="line">  <span class="built_in">eval</span>( str ); <span class="comment">// 欺骗! console.log( a, b );</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">foo( <span class="string">"var b = 3;"</span>, <span class="number">1</span> ); <span class="comment">// 1, 3</span></div><div class="line">在严格模式的程序中，<span class="built_in">eval</span>(..) 在运行时有其自己的词法作用域，意味着其 中的声明无法修改所在的作用域。</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">str</span>) </span>&#123; <span class="string">"use strict"</span>;</div><div class="line"><span class="built_in">eval</span>( str );</div><div class="line">                     <span class="built_in">console</span>.log( a ); <span class="comment">// ReferenceError: a is not de ned</span></div><div class="line">                 &#125;</div><div class="line">                 foo( <span class="string">"var a = 2"</span> );</div></pre></td></tr></table></figure></p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><blockquote>
+<p>当查找变量的时候，会在当前从上下文的变量对象中查找，如果没有找到这个变量，那么它会寻找父级的，直到最顶层全局作用域。这样多个执行上下文的变量构成的链表就叫做作用域链。</p>
+</blockquote>
+<p>JS的语法风格和C/C++类似, 但作用域的实现却和C/C++不同，并非用“堆栈”方式，而是使用列表，具体过程如下(ECMA262中所述):</p>
+<blockquote>
+<p>任何执行上下文时刻的作用域, 都是由作用域链(scope chain, 后面介绍)来实现.<br>在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的[[scope]]属性.<br>在一个函数对象被调用的时候，会创建一个 <strong>活动对象</strong> (也就是一个对象), 然后对于每一个函数的形参，都命名为该活动对象的命名属性, 然后将这个活动对象做为此时的作用域链(scope chain)最前端, 并将这个函数对象的[[scope]]加入到scope chain中.</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/12/作用域链与闭包/">read more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-web安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -718,68 +794,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/03/24/web性能优化/">read more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-codeAndLife" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/codeAndLife/">codeAndLife</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/20/codeAndLife/" class="archive-article-date">
-  	<time datetime="2017-03-20T05:49:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img width="600" src="/images/codeandlife.jpeg" /></p>
-<p style="color: #666;font-size: 13px" ><br>从小到大就喜欢类比，为了能够深刻的理解或者记忆某些事情。<br>所以编程以来，我就经常思考关于代码的东西，拿身边的事物和代码进行对比。<br>二十多岁的我，根本算不上对生活经验丰富、对人生深刻理解。<br>但死亡和人生的告别。直接导致了我对生命无法停止的思考，摆脱不了。<br>人的出生和死亡，在我看来都是造物主严重错误的设计。出生则让母亲痛苦不堪，死亡则会让大部分人痛苦悲伤。<br>就像我有时候写代码那样，一个错误的开始和一个尴尬、错乱、难以收场的结局。<br>有时候我想，人真的只是个特别高级和智能的程序，为了最初设置一个目的，无止尽、不断进化地保证这个高级程序运行下去。<br>有一次我写了个循环，直接在浏览器运行奔溃了。<br>
-        
-          <a class="article-more-a" href="/2017/03/20/codeAndLife/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/20/codeAndLife/">read more >></a>
         </p>
       
 
